@@ -33,7 +33,7 @@ public class medicamentsController implements Initializable {
     @FXML
     private TextField quantiteMaxTextField;
     @FXML
-    private TextField uniteMedocTextField;
+    private TextField dosageMedocTextField;
     @FXML
     private TextField familleMedocTextField;
     @FXML
@@ -80,7 +80,7 @@ public class medicamentsController implements Initializable {
     @FXML
     private TableColumn<Medicament, String> colFamille;
     @FXML
-    private TableColumn<Medicament, String> colUnite;
+    private TableColumn<Medicament, String> colDosage;
     @FXML
     private TableColumn<Medicament, String> colFormeMedicament;
 
@@ -105,7 +105,7 @@ public class medicamentsController implements Initializable {
         colPrescription.setCellValueFactory(new PropertyValueFactory<>("necessitePrescription"));
         colFournisseur.setCellValueFactory(new PropertyValueFactory<>("fournisseur"));
         colFamille.setCellValueFactory(new PropertyValueFactory<>("famille"));
-        colUnite.setCellValueFactory(new PropertyValueFactory<>("unite"));
+        colDosage.setCellValueFactory(new PropertyValueFactory<>("dosage"));
         colFormeMedicament.setCellValueFactory(new PropertyValueFactory<>("formeMedicament"));
 
         // Ajout d'un listener pour la sélection dans le tableau
@@ -184,7 +184,7 @@ public class medicamentsController implements Initializable {
         }
 
         String famille = familleMedocTextField.getText().trim();
-        String unite = uniteMedocTextField.getText().trim();
+        String dosage = dosageMedocTextField.getText().trim();
         String forme = formeMedocTextField.getText().trim();
 
         if (nom.isEmpty()) {
@@ -193,7 +193,7 @@ public class medicamentsController implements Initializable {
         }
 
         if (medicamentsModele.ajouterMedicament(nom, prixAchat, prixVente, stock, seuilAlerte, quantiteMax,
-                prescriptionValue, fournisseurName, famille, unite, forme)) {
+                prescriptionValue, fournisseurName, famille, dosage, forme)) {
             showAlert("Médicament ajouté !", AlertType.INFORMATION);
             clearAddFields();
             loadMedicaments();
@@ -288,8 +288,8 @@ public class medicamentsController implements Initializable {
                 return "fournisseur_id";
             case "Famille":
                 return "famille";
-            case "Unite":
-                return "unite";
+            case "Dosage":
+                return "dosage";
             case "Forme":
                 return "forme_medicament";
             default:
@@ -304,7 +304,7 @@ public class medicamentsController implements Initializable {
         stockMedocTextField.clear();
         seuilCommandeMedocTextField.clear();
         quantiteMaxTextField.clear();
-        uniteMedocTextField.clear();
+        dosageMedocTextField.clear();
         familleMedocTextField.clear();
         formeMedocTextField.clear();
         prescriptionMenuButton.setText("Préscription");

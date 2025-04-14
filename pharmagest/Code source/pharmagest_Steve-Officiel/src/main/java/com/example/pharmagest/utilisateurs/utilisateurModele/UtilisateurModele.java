@@ -106,4 +106,31 @@ public class UtilisateurModele {
         }
         return list;
     }
+
+    public boolean verifierMotDePasse(String id, String motDePasse) {
+        int userId;
+        try {
+            userId = Integer.parseInt(id);
+        } catch (NumberFormatException e) {
+            return false;
+        }
+
+        String query = "SELECT motdepasse FROM utilisateur WHERE id = ?";
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(query)) {
+
+            pstmt.setInt(1, userId);
+            ResultSet rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+                String motDePasseBD = rs.getString("motdepasse");
+                return motDePasseBD.equals(motDePasse);
+            }
+            return false;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

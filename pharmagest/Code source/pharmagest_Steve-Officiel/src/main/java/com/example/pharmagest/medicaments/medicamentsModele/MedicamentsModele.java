@@ -44,8 +44,8 @@ public class MedicamentsModele {
 
     // Modification de la signature pour recevoir le nom du fournisseur
     public boolean ajouterMedicament(String nom, double prixAchat, double prixVente, int stock, int seuilAlerte, int quantiteMax,
-                                     boolean necessitePrescription, String fournisseurName, String famille, String unite, String formeMedicament) {
-        String query = "INSERT INTO medicament (nom, prix_achat, prix_vente, stock, seuil_alerte, quantite_max, necessite_prescription, fournisseur_id, famille, unite, forme_medicament) " +
+                                     boolean necessitePrescription, String fournisseurName, String famille, String dosage, String formeMedicament) {
+        String query = "INSERT INTO medicament (nom, prix_achat, prix_vente, stock, seuil_alerte, quantite_max, necessite_prescription, fournisseur_id, famille, dosage, forme_medicament) " +
                 "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(query)) {
@@ -62,7 +62,7 @@ public class MedicamentsModele {
             pstmt.setBoolean(7, necessitePrescription);
             pstmt.setInt(8, fournisseurId);
             pstmt.setString(9, famille);
-            pstmt.setString(10, unite);
+            pstmt.setString(10, dosage);
             pstmt.setString(11, formeMedicament);
 
             return pstmt.executeUpdate() > 0;
@@ -89,7 +89,7 @@ public class MedicamentsModele {
     public boolean modifierMedicament(String id, String champ, String newValue) {
         int medId = Integer.parseInt(id);
         String[] allowedFields = {"nom", "prix_achat", "prix_vente", "stock", "seuil_alerte", "quantite_max",
-                "necessite_prescription", "fournisseur_id", "famille", "unite", "forme_medicament"};
+                "necessite_prescription", "fournisseur_id", "famille", "dosage", "forme_medicament"};
         if (!Arrays.asList(allowedFields).contains(champ)) return false;
 
         String query = "UPDATE medicament SET " + champ + " = ? WHERE id = ?";
@@ -114,8 +114,8 @@ public class MedicamentsModele {
                 case "quantite_max":
                     pstmt.setInt(1, Integer.parseInt(newValue));
                     break;
-                // Pour 'unite', il s'agit d'une chaîne de caractères
-                case "unite":
+                // Pour 'dosage', il s'agit d'une chaîne de caractères
+                case "dosage":
                     pstmt.setString(1, newValue);
                     break;
                 default:

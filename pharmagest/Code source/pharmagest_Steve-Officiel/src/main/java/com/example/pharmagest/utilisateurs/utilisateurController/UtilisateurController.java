@@ -193,14 +193,25 @@ public class UtilisateurController {
             return;
         }
 
-        boolean success = utilisateurModele.supprimerUtilisateur(String.valueOf(selectedUser.getId()), "");
+        String motDePasse = passwordDeleteField.getText().trim();
+        if (motDePasse.isEmpty()) {
+            showAlert("Veuillez entrer le mot de passe de l'utilisateur.", AlertType.WARNING);
+            return;
+        }
 
-        if (success) {
-            showAlert("Utilisateur supprimé avec succès !", AlertType.INFORMATION);
-            clearDeleteFields();
-            loadUtilisateurs();
+        // Vérifier si le mot de passe est correct
+        if (utilisateurModele.verifierMotDePasse(String.valueOf(selectedUser.getId()), motDePasse)) {
+            boolean success = utilisateurModele.supprimerUtilisateur(String.valueOf(selectedUser.getId()), motDePasse);
+
+            if (success) {
+                showAlert("Utilisateur supprimé avec succès !", AlertType.INFORMATION);
+                clearDeleteFields();
+                loadUtilisateurs();
+            } else {
+                showAlert("Attention : Cet utilisateur ne peut pas être supprimé car il est associé à des commandes.", AlertType.WARNING);
+            }
         } else {
-            showAlert("Attention : Cet utilisateur ne peut pas être supprimé car il est associé à des commandes.", AlertType.WARNING);
+            showAlert("Mot de passe incorrect. La suppression a été annulée.", AlertType.ERROR);
         }
     }
 

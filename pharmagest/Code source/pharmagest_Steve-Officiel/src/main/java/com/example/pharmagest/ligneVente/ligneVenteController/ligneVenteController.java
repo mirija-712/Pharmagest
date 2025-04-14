@@ -54,7 +54,7 @@ public class ligneVenteController {
     @FXML
     private TableColumn<Medicament, String> colFamille;
     @FXML
-    private TableColumn<Medicament, String> colUnite;
+    private TableColumn<Medicament, String> colDosage;
     @FXML
     private TableColumn<Medicament, String> colFormeMedicament;
 
@@ -112,7 +112,7 @@ public class ligneVenteController {
         colStock.setCellValueFactory(new PropertyValueFactory<>("stock"));
         colPrescription.setCellValueFactory(new PropertyValueFactory<>("necessitePrescription"));
         colFamille.setCellValueFactory(new PropertyValueFactory<>("famille"));
-        colUnite.setCellValueFactory(new PropertyValueFactory<>("unite"));
+        colDosage.setCellValueFactory(new PropertyValueFactory<>("dosage"));
         colFormeMedicament.setCellValueFactory(new PropertyValueFactory<>("formeMedicament"));
 
         // Chargement initial de tous les médicaments

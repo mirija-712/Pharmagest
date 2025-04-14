@@ -10,7 +10,7 @@ public class majPrix {
     private boolean necessitePrescription;
     private int fournisseurId;
     private String famille;
-    private String unite;
+    private String dosage;
     private String formeMedicament;
 
     // Constructeur vide
@@ -19,7 +19,7 @@ public class majPrix {
 
     // Constructeur avec tous les paramètres
     public majPrix(int id, String nom, double prixAchat, double prixVente, int stock, int seuilAlerte,
-                   boolean necessitePrescription, int fournisseurId, String famille, String unite, String formeMedicament) {
+                   boolean necessitePrescription, int fournisseurId, String famille, String dosage, String formeMedicament) {
         this.id = id;
         this.nom = nom;
         this.prixAchat = prixAchat;
@@ -29,7 +29,7 @@ public class majPrix {
         this.necessitePrescription = necessitePrescription;
         this.fournisseurId = fournisseurId;
         this.famille = famille;
-        this.unite = unite;
+        this.dosage = dosage;
         this.formeMedicament = formeMedicament;
     }
 
@@ -97,11 +97,11 @@ public class majPrix {
         this.famille = famille;
     }
 
-    public String getUnite() {
-        return unite;
+    public String getDosage() {
+        return dosage;
     }
-    public void setUnite(String unite) {
-        this.unite = unite;
+    public void setDosage(String dosage) {
+        this.dosage = dosage;
     }
 
     public String getFormeMedicament() {

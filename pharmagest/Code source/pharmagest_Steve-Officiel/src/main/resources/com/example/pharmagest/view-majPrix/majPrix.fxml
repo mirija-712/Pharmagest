@@ -56,7 +56,7 @@
                                 <TableColumn fx:id="colPrixAchat" prefWidth="147.0" style="-fx-alignment: CENTER;" text="Prix achat (Rs)" />
                                 <TableColumn fx:id="colPrixVente" prefWidth="149.0" style="-fx-alignment: CENTER;" text="Prix vente (Rs)" />
                                 <TableColumn fx:id="colFamille" prefWidth="185.0" style="-fx-alignment: CENTER;" text="Famille" />
-                                <TableColumn fx:id="colUnite" prefWidth="79.0" style="-fx-alignment: CENTER;" text="Unité" />
+                                <TableColumn fx:id="colDosage" prefWidth="79.0" style="-fx-alignment: CENTER;" text="Dosage" />
                                 <TableColumn fx:id="colFormeMedicament" prefWidth="134.0" style="-fx-alignment: CENTER;" text="Forme" />
                             </columns>
                         </TableView>

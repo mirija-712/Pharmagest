@@ -43,7 +43,7 @@ public class ligneVenteModele {
                 m.setNecessitePrescription(rs.getBoolean("necessite_prescription"));
                 m.setFormeMedicament(rs.getString("forme_medicament"));
                 m.setFamille(rs.getString("famille"));
-                m.setUnite(rs.getString("dosage"));
+                m.setDosage(rs.getString("dosage"));
                 m.setFournisseurId(rs.getInt("fournisseur_id"));
                 medicaments.add(m);
             }

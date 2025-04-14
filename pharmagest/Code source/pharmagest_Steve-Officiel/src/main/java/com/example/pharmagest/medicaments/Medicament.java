@@ -12,7 +12,7 @@ public class Medicament {
     private int fournisseurId; // ID du fournisseur
     private String fournisseur; // Nom du fournisseur
     private String famille;
-    private String unite;
+    private String dosage;
     private String formeMedicament;
     private int quantiteVendue; // Nouvelle propriété pour stocker la quantité vendue
 
@@ -20,7 +20,7 @@ public class Medicament {
     // Constructeur complet (13 paramètres)
     public Medicament(int id, String nom, double prixAchat, double prixVente, int stock, int seuilAlerte,
                       int quantiteMax, boolean necessitePrescription, int fournisseurId, String fournisseur,
-                      String famille, String unite, String formeMedicament) {
+                      String famille, String dosage, String formeMedicament) {
         this.id = id;
         this.nom = nom;
         this.prixAchat = prixAchat;
@@ -32,7 +32,7 @@ public class Medicament {
         this.fournisseurId = fournisseurId;
         this.fournisseur = fournisseur;
         this.famille = famille;
-        this.unite = unite;
+        this.dosage = dosage;
         this.formeMedicament = formeMedicament;
     }
 
@@ -43,7 +43,7 @@ public class Medicament {
     // Nouveau constructeur pour l'affichage sur une autre page (si besoin d'une version sans fournisseur)
     public Medicament(int id, String nom, double prixAchat, double prixVente, int stock, int seuilAlerte,
                       int quantiteMax, boolean necessitePrescription, int fournisseurId, String famille,
-                      String unite, String formeMedicament) {
+                      String dosage, String formeMedicament) {
         this.id = id;
         this.nom = nom;
         this.prixAchat = prixAchat;
@@ -56,7 +56,7 @@ public class Medicament {
         // Ici, le nom du fournisseur n'est pas transmis, donc on peut le laisser vide
         this.fournisseur = "";
         this.famille = famille;
-        this.unite = unite;
+        this.dosage = dosage;
         this.formeMedicament = formeMedicament;
     }
 
@@ -94,8 +94,8 @@ public class Medicament {
     public String getFamille() {
         return famille;
     }
-    public String getUnite() {
-        return unite;
+    public String getDosage() {
+        return dosage;
     }
     public String getFormeMedicament() {
         return formeMedicament;
@@ -138,8 +138,8 @@ public class Medicament {
     public void setFamille(String famille) {
         this.famille = famille;
     }
-    public void setUnite(String unite) {
-        this.unite = unite;
+    public void setDosage(String dosage) {
+        this.dosage = dosage;
     }
     public void setFormeMedicament(String formeMedicament) {
         this.formeMedicament = formeMedicament;

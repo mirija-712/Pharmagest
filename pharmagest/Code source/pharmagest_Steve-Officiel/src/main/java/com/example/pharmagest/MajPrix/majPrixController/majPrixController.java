@@ -39,7 +39,7 @@ public class majPrixController implements Initializable {
     @FXML
     private TableColumn<majPrix, String> colFamille;
     @FXML
-    private TableColumn<majPrix, String> colUnite;
+    private TableColumn<majPrix, String> colDosage;
     @FXML
     private TableColumn<majPrix, String> colFormeMedicament;
 
@@ -67,7 +67,7 @@ public class majPrixController implements Initializable {
         colPrixAchat.setCellValueFactory(new PropertyValueFactory<>("prixAchat"));
         colPrixVente.setCellValueFactory(new PropertyValueFactory<>("prixVente"));
         colFamille.setCellValueFactory(new PropertyValueFactory<>("famille"));
-        colUnite.setCellValueFactory(new PropertyValueFactory<>("unite"));
+        colDosage.setCellValueFactory(new PropertyValueFactory<>("dosage"));
         colFormeMedicament.setCellValueFactory(new PropertyValueFactory<>("formeMedicament"));
 
         loadMedicaments();

@@ -52,7 +52,7 @@
                                 <TableColumn fx:id="colPrescription" prefWidth="117.0" style="-fx-alignment: CENTER;" text="Prescription" />
                                 <TableColumn fx:id="colFournisseur" prefWidth="127.0" style="-fx-alignment: CENTER;" text="Fournisseur" />
                                 <TableColumn fx:id="colFamille" minWidth="0.0" prefWidth="206.0" style="-fx-alignment: CENTER;" text="Famille" />
-                                <TableColumn fx:id="colUnite" minWidth="0.0" prefWidth="63.0" style="-fx-alignment: CENTER;" text="Unite" />
+                                <TableColumn fx:id="colDosage" minWidth="0.0" prefWidth="63.0" style="-fx-alignment: CENTER;" text="Dosage" />
                                 <TableColumn fx:id="colFormeMedicament" prefWidth="123.0" style="-fx-alignment: CENTER;" text="Forme" />
                             </columns>
                         </TableView>

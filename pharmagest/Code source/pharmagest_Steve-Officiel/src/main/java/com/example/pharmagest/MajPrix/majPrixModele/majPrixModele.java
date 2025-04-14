@@ -24,7 +24,7 @@ public class majPrixModele {
                 medicament.setPrixAchat(rs.getDouble("prix_achat"));
                 medicament.setPrixVente(rs.getDouble("prix_vente"));
                 medicament.setFamille(rs.getString("famille"));
-                medicament.setUnite(rs.getString("dosage"));
+                medicament.setDosage(rs.getString("dosage"));
                 medicament.setFormeMedicament(rs.getString("forme_medicament"));
 
                 medicamentsList.add(medicament);

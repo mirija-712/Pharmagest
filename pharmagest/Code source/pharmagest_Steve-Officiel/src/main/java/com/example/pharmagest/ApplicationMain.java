@@ -16,7 +16,7 @@ public class ApplicationMain extends Application {
             stage.setTitle("PharmaGest");
         // Retirer la ligne suivante pour avoir les boutons de réduction et de fermeture
         // stage.initStyle(StageStyle.UNDECORATED);
-        stage.setScene(scene);
+        stage.setScene(scene);  
         stage.show();
     }
 

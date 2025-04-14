@@ -63,7 +63,7 @@ public class commandeController implements Initializable {
     @FXML
     private TableColumn<Medicament, String> colFamille;
     @FXML
-    private TableColumn<Medicament, String> colUnite;
+    private TableColumn<Medicament, String> colDosage;
     @FXML
     private TableColumn<Medicament, String> colFormeMedicament;
     @FXML
@@ -134,7 +134,7 @@ public class commandeController implements Initializable {
         colPrescription.setCellValueFactory(new PropertyValueFactory<>("necessitePrescription"));
         colFournisseur.setCellValueFactory(new PropertyValueFactory<>("fournisseur"));
         colFamille.setCellValueFactory(new PropertyValueFactory<>("famille"));
-        colUnite.setCellValueFactory(new PropertyValueFactory<>("unite"));
+        colDosage.setCellValueFactory(new PropertyValueFactory<>("dosage"));
         colFormeMedicament.setCellValueFactory(new PropertyValueFactory<>("formeMedicament"));
 
         colIDCommande.setCellValueFactory(new PropertyValueFactory<>("id"));

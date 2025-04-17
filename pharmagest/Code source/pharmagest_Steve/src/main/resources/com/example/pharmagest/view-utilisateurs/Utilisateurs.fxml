@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="754.0" prefWidth="1147.0" style="-fx-background-color: #AED6F1;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pharmagest.utilisateurs.utilisateurController.UtilisateurController">
+    <children>
+        <BorderPane prefHeight="759.0" prefWidth="1152.0">
+            <right>
+                <AnchorPane prefHeight="759.0" prefWidth="1371.0" style="-fx-background-color: #646564;" BorderPane.alignment="CENTER">
+                    <children>
+                        <!-- TableView affichant les utilisateurs -->
+                        <TableView fx:id="tableView" layoutX="580.0" layoutY="293.0" prefHeight="322.0" prefWidth="769.0">
+                            <columns>
+                                <TableColumn fx:id="colID" prefWidth="84.0" text="ID" style="-fx-alignment: CENTER;"  />
+                                <TableColumn fx:id="colNom" prefWidth="111.66668701171875" text="Nom" style="-fx-alignment: CENTER;"  />
+                                <TableColumn fx:id="colPrenom" prefWidth="126.0" text="Prénom" style="-fx-alignment: CENTER;"  />
+                                <TableColumn fx:id="colIdentifiant" prefWidth="133.66668701171875" text="Identifiant" style="-fx-alignment: CENTER;"  />
+                                <TableColumn fx:id="colEmail" minWidth="0.0" prefWidth="168.666748046875" text="E-mail" style="-fx-alignment: CENTER;"  />
+                                <TableColumn fx:id="colNumero" minWidth="0.0" prefWidth="164.333251953125" text="Numéro" style="-fx-alignment: CENTER;"  />
+                            </columns>
+                        </TableView>
+
+                        <!-- Zone de mise à jour -->
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#08613c" height="85.0" layoutX="578.0" layoutY="178.0" stroke="BLACK" strokeType="INSIDE" width="768.0" />
+                        <TextField fx:id="idTextField" layoutX="629.0" layoutY="209.0" prefHeight="25.0" prefWidth="61.0" promptText="id..." />
+                        <Label layoutX="602.0" layoutY="212.0" prefHeight="17.0" prefWidth="42.0" text="- ID :" textFill="WHITE" />
+                        <Label layoutX="708.0" layoutY="213.0" prefHeight="17.0" prefWidth="119.0" text="- Champs à modifier : " textFill="WHITE" />
+                        <MenuButton fx:id="menuButton" layoutX="830.0" layoutY="209.0" mnemonicParsing="false" text="choix menu" textOverrun="CLIP">
+                            <items>
+                                <MenuItem fx:id="menuItemNom" mnemonicParsing="false" text="nom" />
+                                <MenuItem fx:id="menuItemPrenom" mnemonicParsing="false" text="prenom" />
+                                <MenuItem fx:id="menuItemIdentifiant" mnemonicParsing="false" text="identifiant" />
+                                <MenuItem fx:id="menuItemEmail" mnemonicParsing="false" text="email" />
+                                <MenuItem fx:id="menuItemNumero" mnemonicParsing="false" text="numero" />
+                            </items>
+                        </MenuButton>
+                        <Label layoutX="943.0" layoutY="213.0" prefHeight="17.0" prefWidth="119.0" text="- Nouvelle valeur :" textFill="WHITE" />
+                        <TextField fx:id="newValueTextField" layoutX="1036.0" layoutY="210.0" prefHeight="25.0" prefWidth="158.0" promptText="nouvelle valeur..." />
+                        <Button fx:id="updateButton" layoutX="1205.0" layoutY="210.0" mnemonicParsing="false" onAction="#updateButtonOnAction" prefHeight="25.0" prefWidth="124.0" style="-fx-background-color: yellow;" text="Mettre à jour" />
+
+                        <!-- Titre -->
+                        <Label layoutX="500.0" layoutY="47.0" text="Gestion Utilisateur" textFill="WHITE">
+                            <font>
+                                <Font name="Baskerville Old Face" size="60.0" />
+                            </font>
+                        </Label>
+
+                        <!-- Zone d'ajout d'utilisateur -->
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#166f2e" height="236.0" layoutX="35.0" layoutY="178.0" stroke="BLACK" strokeType="INSIDE" width="526.0" />
+                        <ImageView fx:id="userImageView" fitHeight="133.0" fitWidth="150.0" layoutX="426.0" layoutY="175.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../image/icons8-utilisateur-7.png" />
+                            </image>
+                        </ImageView>
+                        <Label layoutX="119.0" layoutY="210.0" text="Nom :" textFill="WHITE">
+                            <font>
+                                <Font size="15.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="101.0" layoutY="239.0" text="Prénom :" textFill="WHITE">
+                            <font>
+                                <Font size="15.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="86.0" layoutY="334.0" prefHeight="26.0" prefWidth="75.0" text="Identifiant :" textFill="WHITE">
+                            <font>
+                                <Font size="15.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="112.0" layoutY="274.0" text="E-mail :" textFill="WHITE">
+                            <font>
+                                <Font size="15.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="99.0" layoutY="305.0" text="Numéro :" textFill="WHITE">
+                            <font>
+                                <Font size="15.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="nomTextField" layoutX="165.0" layoutY="201.0" prefHeight="30.0" prefWidth="235.0" />
+                        <TextField fx:id="prenomTextField" layoutX="165.0" layoutY="233.0" prefHeight="30.0" prefWidth="235.0" />
+                        <TextField fx:id="numeroTextField" layoutX="165.0" layoutY="297.0" prefHeight="30.0" prefWidth="235.0" />
+                        <TextField fx:id="identifiantTextField" layoutX="165.0" layoutY="329.0" prefHeight="30.0" prefWidth="235.0" />
+                        <TextField fx:id="emailTextField" layoutX="165.0" layoutY="265.0" prefHeight="30.0" prefWidth="235.0" />
+                        <Button fx:id="addButton" layoutX="450.0" layoutY="313.0" mnemonicParsing="false" onAction="#addButtonOnAction" prefHeight="25.0" prefWidth="87.0" style="-fx-background-color: green;" text="Ajouter" textFill="WHITE" />
+                        <Label layoutX="65.0" layoutY="364.0" text="Mot de passe :" textFill="WHITE">
+                            <font>
+                                <Font size="15.0" />
+                            </font>
+                        </Label>
+                        <PasswordField fx:id="passwordTextField" layoutX="165.0" layoutY="361.0" prefHeight="33.0" prefWidth="235.0" />
+
+                        <!-- Zone de suppression d'utilisateur -->
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff2121c3" height="184.0" layoutX="37.0" layoutY="430.0" stroke="BLACK" strokeType="INSIDE" width="526.0" />
+                        <ImageView fx:id="userDeleteImageView" fitHeight="133.0" fitWidth="150.0" layoutX="428.0" layoutY="429.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../image/icons8-utilisateur-8.png" />
+                            </image>
+                        </ImageView>
+                        <!-- Pour la suppression, nous utilisons l'ID et le mot de passe -->
+                        <Label layoutX="119.0" layoutY="495.0" text="ID :" textFill="WHITE">
+                            <font>
+                                <Font size="15.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="64.0" layoutY="524.0" text="Mot de passe :" textFill="WHITE">
+                            <font>
+                                <Font size="15.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="idDeleteTextField" layoutX="165.0" layoutY="486.0" prefHeight="30.0" prefWidth="235.0" promptText="id..." />
+                        <PasswordField fx:id="passwordDeleteField" layoutX="165.0" layoutY="519.0" prefHeight="33.0" prefWidth="235.0" promptText="mot de passe..." />
+                        <Button fx:id="deleteButton" layoutX="452.0" layoutY="567.0" mnemonicParsing="false" onAction="#deleteButtonOnAction" prefHeight="25.0" prefWidth="87.0" style="-fx-background-color: red;" text="Supprimer" textFill="WHITE" />
+
+                        <!-- Bouton retour -->
+                        <Button fx:id="retourButton" layoutX="1286.0" layoutY="25.0" mnemonicParsing="false" onAction="#retourButtonOnClick" style="-fx-background-color: red;" text="Retour" textFill="WHITE" />
+
+                        <!-- Label d'erreur / confirmation -->
+                        <Label fx:id="errorLabel" layoutX="501.0" layoutY="120.0" prefHeight="47.0" prefWidth="457.0">
+                            <font>
+                                <Font name="Book Antiqua Italic" size="32.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </AnchorPane>
+            </right>
+        </BorderPane>
+    </children>
+</AnchorPane>

@@ -9,36 +9,79 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="759.0" prefWidth="1371.0" style="-fx-background-color: linear-gradient(to bottom right, #2C3E50, #34495E);" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pharmagest.ligneVente.ligneVenteController.ligneVenteController">
+<AnchorPane prefHeight="764.0" prefWidth="1366.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pharmagest.ligneVente.ligneVenteController.ligneVenteController">
    <children>
-      <Rectangle arcHeight="15.0" arcWidth="15.0" fill="#ffffff" height="475.0" layoutX="17.0" layoutY="209.0" opacity="0.95" stroke="TRANSPARENT" strokeType="INSIDE" style="-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 3);" width="705.0" />
-      <Rectangle arcHeight="15.0" arcWidth="15.0" fill="#ffffff" height="475.0" layoutX="740.0" layoutY="210.0" opacity="0.95" stroke="TRANSPARENT" strokeType="INSIDE" style="-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 3);" width="620.0" />
-      <ImageView fitHeight="165.0" fitWidth="274.0" layoutX="24.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="764.0" fitWidth="1372.0" layoutX="0.0" layoutY="0.0" pickOnBounds="true">
          <image>
-            <Image url="@../image/Caisse.jpg" />
+            <Image url="@../image/Vente.jpg" />
          </image>
       </ImageView>
-      <Label layoutX="574.0" layoutY="40.0" prefHeight="66.0" prefWidth="315.0" style="-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 0, 2);" text="Ligne de Vente" textFill="WHITE">
+
+      <!-- En-tête -->
+      <HBox alignment="CENTER_LEFT" layoutX="0.0" layoutY="0.0" prefHeight="80.0" prefWidth="1372.0" style="-fx-background-color: white; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 2);">
+         <children>
+            <HBox alignment="CENTER_LEFT" spacing="20.0" style="-fx-padding: 0 0 0 20;">
+               <children>
+                  <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/Vente.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label style="-fx-text-fill: black; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 0, 2);" text="Ligne de Vente">
+                     <font>
+                        <Font name="Berlin Sans FB Demi Bold" size="28.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <Region HBox.hgrow="ALWAYS" />
+            <HBox alignment="CENTER_RIGHT" spacing="20.0" style="-fx-padding: 0 20 0 0;">
+               <children>
+                  <Button fx:id="RetourDashboard" mnemonicParsing="false" onAction="#RetourDashboardOnClick" style="-fx-background-color: #DC2626; -fx-text-fill: white; -fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 1); -fx-cursor: hand;" text="Retour">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+
+      <!-- Zone des médicaments -->
+      <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#000000a1" height="644.0" layoutX="17.0" layoutY="100.0" opacity="1.0" stroke="#e0e0e007" strokeType="INSIDE" width="705.0" />
+      <Label layoutX="41.0" layoutY="110.0" style="-fx-font-size: 24; -fx-font-weight: bold;" text="Médicaments en stock" textFill="WHITE">
          <font>
-            <Font name="Segoe UI Light" size="49.0" />
+            <Font name="Segoe UI Semibold" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="753.0" layoutY="224.0" prefHeight="24.0" prefWidth="236.0" style="-fx-text-fill: #2C3E50;">
+
+      <!-- Zone de recherche -->
+      <TextField fx:id="rechercheTextField" alignment="CENTER" layoutX="29.0" layoutY="160.0" prefHeight="30.0" prefWidth="200.0" promptText="Rechercher..." style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #e5e7eb; -fx-border-width: 1; -fx-background-color: white; -fx-text-fill: #1f2937; -fx-prompt-text-fill: #9ca3af;" />
+      <ImageView fitHeight="24.0" fitWidth="21.0" layoutX="240.0" layoutY="164.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/icons8-recherche-100.png" />
+         </image>
+      </ImageView>
+
+      <!-- Options de vente -->
+      <RadioButton fx:id="venteLibreRadio" layoutX="300.0" layoutY="165.0" mnemonicParsing="false" onAction="#venteLibreRadioOnClick" text="Vente sans ordonnance" textFill="WHITE">
          <font>
-            <Font name="Segoe UI Semibold" size="20.0" />
-         </font>
-      </Label>
-      <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#75fc87" height="40.0" layoutX="513.0" layoutY="217.0" stroke="TRANSPARENT" strokeType="INSIDE" style="-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 1);" width="202.0" />
-      <RadioButton fx:id="ordonanceRadio" layoutX="529.0" layoutY="227.0" mnemonicParsing="false" onAction="#ventePrescrisOnClick" style="-fx-text-fill: #2C3E50;" text="Vente avec ordonance" textFill="#f8eded">
-         <font>
-            <Font name="Segoe UI" size="15.0" />
+            <Font name="System Bold" size="14.0" />
          </font>
       </RadioButton>
-      <!-- Tableau des médicaments -->
-      <TableView fx:id="medicamentsTableView" layoutX="28.0" layoutY="266.0" prefHeight="359.0" prefWidth="686.0" style="-fx-background-color: transparent; -fx-border-color: transparent;">
+      <RadioButton fx:id="ordonanceRadio" layoutX="500.0" layoutY="165.0" mnemonicParsing="false" onAction="#ventePrescrisOnClick" text="Vente avec ordonnance" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </RadioButton>
+
+      <!-- TableView des médicaments -->
+      <TableView fx:id="medicamentsTableView" layoutX="28.0" layoutY="210.0" prefHeight="450.0" prefWidth="686.0" style="-fx-background-color: transparent; -fx-border-color: transparent;">
          <columns>
             <TableColumn fx:id="colID" minWidth="0.0" prefWidth="0.0" style="-fx-alignment: CENTER;" text="ID" />
             <TableColumn fx:id="colNom" prefWidth="176.0" style="-fx-alignment: CENTER;" text="Nom" />
@@ -50,47 +93,56 @@
             <TableColumn fx:id="colFormeMedicament" prefWidth="116.0" style="-fx-alignment: CENTER;" text="Forme" />
          </columns>
       </TableView>
-      <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#399afc" height="40.0" layoutX="284.0" layoutY="217.0" stroke="TRANSPARENT" strokeType="INSIDE" style="-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 1);" width="202.0" />
-      <RadioButton fx:id="venteLibreRadio" layoutX="300.0" layoutY="227.0" mnemonicParsing="false" onAction="#venteLibreRadioOnClick" style="-fx-text-fill: #2C3E50;" text="Vente sans ordonance">
+
+      <!-- Zone de quantité et boutons -->
+      <TextField fx:id="quantiteTextField" alignment="CENTER" layoutX="29.0" layoutY="680.0" prefHeight="30.0" prefWidth="150.0" promptText="Quantité..." style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #e5e7eb; -fx-border-width: 1; -fx-background-color: white; -fx-text-fill: #1f2937; -fx-prompt-text-fill: #9ca3af;" />
+      <Button fx:id="addButtonLigneVente" layoutX="200.0" layoutY="680.0" mnemonicParsing="false" onAction="#addButtonLigneVenteOnAction" style="-fx-background-color: #059669; -fx-text-fill: white; -fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 1); -fx-cursor: hand;" text="Ajouter">
          <font>
-            <Font name="Segoe UI" size="15.0" />
+            <Font name="System Bold" size="14.0" />
          </font>
-      </RadioButton>
-      <TextField fx:id="rechercheTextField" layoutX="29.0" layoutY="229.0" prefHeight="25.0" prefWidth="131.0" style="-fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #ecf0f1; -fx-border-width: 1;" />
-      <TextField fx:id="quantiteTextField" layoutX="29.0" layoutY="644.0" prefHeight="25.0" prefWidth="75.0" promptText="quantités.." style="-fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #ecf0f1; -fx-border-width: 1;" />
-      <Button fx:id="addButtonLigneVente" layoutX="110.0" layoutY="644.0" mnemonicParsing="false" onAction="#addButtonLigneVenteOnAction" style="-fx-background-color: #27ae60; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 1);" text="Ajouter" textFill="WHITE" />
-      <TableView fx:id="ligneVenteTableView" layoutX="750.0" layoutY="221.0" prefHeight="406.0" prefWidth="603.0" style="-fx-background-color: transparent; -fx-border-color: transparent;">
+      </Button>
+      <Button fx:id="confirmerQuantitesButton" layoutX="500.0" layoutY="680.0" mnemonicParsing="false" onAction="#confirmerQuantitesButtonOnClick" prefHeight="30.0" prefWidth="214.0" style="-fx-background-color: #D97706; -fx-text-fill: white; -fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 1); -fx-cursor: hand;" text="Confirmer Quantités">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+
+      <!-- Zone du panier -->
+      <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#0000008c" height="644.0" layoutX="740.0" layoutY="100.0" opacity="1.0" stroke="#d4d01100" strokeType="INSIDE" width="620.0" />
+      <Label layoutX="764.0" layoutY="110.0" style="-fx-font-size: 24; -fx-font-weight: bold;" text="Médicaments sélectionnés" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI Semibold" size="24.0" />
+         </font>
+      </Label>
+
+      <!-- TableView du panier -->
+      <TableView fx:id="ligneVenteTableView" layoutX="750.0" layoutY="210.0" prefHeight="450.0" prefWidth="603.0" style="-fx-background-color: transparent; -fx-border-color: transparent;">
          <columns>
             <TableColumn fx:id="colIDLigneVente" minWidth="0.0" prefWidth="0.0" style="-fx-alignment: CENTER;" text="ID" />
             <TableColumn fx:id="colVenteID" minWidth="0.0" prefWidth="0.0" style="-fx-alignment: CENTER;" text="Vente ID" />
             <TableColumn fx:id="colMedicamentID" prefWidth="150.0" style="-fx-alignment: CENTER;" text="Médicament" />
-            <TableColumn fx:id="colQuantite" prefWidth="140.0" style="-fx-alignment: CENTER;" text="Quantites" />
+            <TableColumn fx:id="colQuantite" prefWidth="140.0" style="-fx-alignment: CENTER;" text="Quantités" />
             <TableColumn fx:id="colPrixUnit" prefWidth="127.0" style="-fx-alignment: CENTER;" text="Prix Unitaire" />
             <TableColumn fx:id="colPrescriptionID" minWidth="0.0" prefWidth="0.0" style="-fx-alignment: CENTER;" text="Prescription" />
             <TableColumn fx:id="colTypeVente" prefWidth="185.0" style="-fx-alignment: CENTER;" text="Type de Vente" />
          </columns>
       </TableView>
-      <Button fx:id="addButtonVente" layoutX="1293.0" layoutY="643.0" mnemonicParsing="false" onAction="#addButtonVenteOnAction" style="-fx-background-color: #27ae60; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 1);" text="Envoyer" textFill="WHITE" />
-      <Button fx:id="RetourDashboard" layoutX="1297.0" layoutY="21.0" mnemonicParsing="false" onAction="#RetourDashboardOnClick" style="-fx-background-color: #e74c3c; -fx-background-radius: 5; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 1);" text="Retour" textFill="WHITE" />
-      <Button fx:id="clearLigneVenteButton" layoutX="748.0" layoutY="644.0" mnemonicParsing="false" onAction="#clearLigneVenteButtonOnClick" style="-fx-background-color: #e74c3c; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 1);" text="Annuler la vente" textFill="WHITE" />
-      <ImageView fitHeight="24.0" fitWidth="21.0" layoutX="165.0" layoutY="231.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/icons8-recherche-100.png" />
-         </image>
-      </ImageView>
-      <Rectangle arcHeight="15.0" arcWidth="15.0" fill="#f8f9fa" height="31.0" layoutX="17.0" layoutY="177.0" stroke="TRANSPARENT" strokeType="INSIDE" style="-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 1);" width="281.0" />
-      <Label layoutX="41.0" layoutY="181.0" prefHeight="30.0" prefWidth="216.0" style="-fx-text-fill: #2C3E50;" text="Medicaments stock">
+
+      <!-- Boutons de gestion du panier -->
+      <Button fx:id="clearLigneVenteButton" layoutX="750.0" layoutY="680.0" mnemonicParsing="false" onAction="#clearLigneVenteButtonOnClick" style="-fx-background-color: #DC2626; -fx-text-fill: white; -fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 1); -fx-cursor: hand;" text="Annuler la vente">
          <font>
-            <Font name="Segoe UI Semibold" size="20.0" />
+            <Font name="System Bold" size="14.0" />
          </font>
-      </Label>
-      <Rectangle arcHeight="15.0" arcWidth="15.0" fill="#f8f9fa" height="31.0" layoutX="740.0" layoutY="177.0" stroke="TRANSPARENT" strokeType="INSIDE" style="-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 1);" width="281.0" />
-      <Label layoutX="764.0" layoutY="181.0" prefHeight="30.0" prefWidth="251.0" style="-fx-text-fill: #2C3E50;" text="Medicaments sélectionnés">
+      </Button>
+      <Button fx:id="deleteMedocButton" layoutX="900.0" layoutY="680.0" mnemonicParsing="false" onAction="#deleteMedocButtonOnClick" style="-fx-background-color: #D97706; -fx-text-fill: white; -fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 1); -fx-cursor: hand;" text="Supprimer">
          <font>
-            <Font name="Segoe UI Semibold" size="20.0" />
+            <Font name="System Bold" size="14.0" />
          </font>
-      </Label>
-      <Button fx:id="deleteMedocButton" layoutX="855.0" layoutY="644.0" mnemonicParsing="false" onAction="#deleteMedocButtonOnClick" prefHeight="25.0" prefWidth="89.0" style="-fx-background-color: #f1f822; -fx-background-radius: 20;" text="Supprimer" />
-      <Button fx:id="confirmerQuantitesButton" layoutX="583.0" layoutY="644.0" mnemonicParsing="false" onAction="#confirmerQuantitesButtonOnClick" prefHeight="25.0" prefWidth="131.0" style="-fx-background-color: #f1f822; -fx-background-radius: 10;" text="Confirmer Quantites" />
+      </Button>
+      <Button fx:id="addButtonVente" layoutX="1200.0" layoutY="680.0" mnemonicParsing="false" onAction="#addButtonVenteOnAction" prefHeight="30.0" prefWidth="149.0" style="-fx-background-color: #059669; -fx-text-fill: white; -fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 1); -fx-cursor: hand;" text="Envoyer">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

@@ -11,66 +11,100 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="754.0" prefWidth="1147.0" style="-fx-background-color: linear-gradient(to bottom right, #2C3E50, #34495E);" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pharmagest.medicaments.medicamentsController.medicamentsController">
+<AnchorPane prefHeight="764.0" prefWidth="1366.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pharmagest.medicaments.medicamentsController.medicamentsController">
     <children>
+        <!-- Fond d'écran -->
+        <ImageView fitHeight="764.0" fitWidth="1372.0" layoutX="0.0" layoutY="0.0" pickOnBounds="true">
+            <image>
+                <Image url="@../image/medicaments.jpg" />
+            </image>
+        </ImageView>
         <BorderPane prefHeight="759.0" prefWidth="1152.0">
+            <top>
+                <HBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="1372.0" style="-fx-background-color: white; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 2);">
+                    <children>
+                        <HBox alignment="CENTER_LEFT" spacing="20.0" style="-fx-padding: 0 0 0 20;">
+                            <children>
+                                <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../image/medicaments.jpg" />
+                                    </image>
+                                </ImageView>
+                                <Label prefHeight="40.0" prefWidth="270.0" style="-fx-text-fill: black; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 0, 2);" text="Gestion Médicaments" textAlignment="CENTER">
+                                    <font>
+                                        <Font name="Berlin Sans FB Demi Bold" size="28.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </HBox>
+                        <Region HBox.hgrow="ALWAYS" />
+                        <HBox alignment="CENTER_RIGHT" spacing="20.0" style="-fx-padding: 0 20 0 0;">
+                            <children>
+                                <Button fx:id="retourButton" mnemonicParsing="false" onAction="#retourButtonOnClick" style="-fx-background-color: #DC2626; -fx-text-fill: white; -fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 1); -fx-cursor: hand;" text="Retour">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Button>
+                            </children>
+                        </HBox>
+                    </children>
+                </HBox>
+            </top>
             <right>
                 <AnchorPane prefHeight="759.0" prefWidth="1371.0" BorderPane.alignment="CENTER">
                     <children>
-                        <!-- Titre -->
-                        <Label layoutX="500.0" layoutY="25.0" style="-fx-text-fill: white; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 0, 2);" text="Gestion Médicaments">
+                        <!-- Zone d'ajout avec effet glassmorphisme -->
+                        <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#98f598a1" height="344.0" layoutX="40.0" layoutY="18.0" opacity="1.0" stroke="#1ac4000a" strokeType="INSIDE" width="339.0" />
+                        <Label layoutX="83.0" layoutY="34.0" style="-fx-font-size: 24; -fx-font-weight: bold; -fx-text-fill: #1f2937;" text="Ajouter un médicament">
                             <font>
-                                <Font name="Segoe UI Light" size="49.0" />
+                                <Font name="Segoe UI Semibold" size="24.0" />
                             </font>
                         </Label>
-
-                        <!-- Zone d'ajout -->
-                        <Rectangle arcHeight="15.0" arcWidth="15.0" fill="#ffffff" height="432.0" layoutX="35.0" layoutY="120.0" opacity="0.95" stroke="TRANSPARENT" strokeType="INSIDE" style="-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 3);" width="385.0" />
-                        <Label layoutX="55.0" layoutY="140.0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #2C3E50;" text="Ajouter un médicament">
-                            <font>
-                                <Font name="Segoe UI Semibold" size="20.0" />
-                            </font>
-                        </Label>
-                        <ImageView fitHeight="89.0" fitWidth="165.0" layoutX="38.0" layoutY="19.0" preserveRatio="true">
-                            <image>
-                                <Image url="@../image/medoc-1.jpg" />
-                            </image>
-                        </ImageView>
 
                         <!-- Champs de saisie avec style modernisé -->
-                        <TextField fx:id="nomMedocTextField" layoutX="55.0" layoutY="225.0" prefHeight="30.0" prefWidth="188.0" promptText="Nom médicament" style="-fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #ecf0f1; -fx-border-width: 1;" />
-                        <TextField fx:id="prixAchatMedocTextField" layoutX="55.0" layoutY="265.0" prefHeight="30.0" prefWidth="190.0" promptText="Prix d'achat" style="-fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #ecf0f1; -fx-border-width: 1;" />
-                        <TextField fx:id="prixVenteMedocTextField" layoutX="55.0" layoutY="305.0" prefHeight="30.0" prefWidth="190.0" promptText="Prix de vente" style="-fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #ecf0f1; -fx-border-width: 1;" />
-                        <TextField fx:id="stockMedocTextField" layoutX="55.0" layoutY="345.0" prefHeight="30.0" prefWidth="191.0" promptText="Stock" style="-fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #ecf0f1; -fx-border-width: 1;" />
-                        <TextField fx:id="seuilCommandeMedocTextField" layoutX="55.0" layoutY="385.0" prefHeight="30.0" prefWidth="191.0" promptText="Seuil d'alerte" style="-fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #ecf0f1; -fx-border-width: 1;" />
-                        <TextField fx:id="quantiteMaxTextField" layoutX="55.0" layoutY="425.0" prefHeight="30.0" prefWidth="191.0" promptText="Quantité maximale" style="-fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #ecf0f1; -fx-border-width: 1;" />
-                        
-                        <MenuButton fx:id="prescriptionMenuButton" layoutX="264.0" layoutY="225.0" prefHeight="30.0" prefWidth="118.0" style="-fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #ecf0f1; -fx-border-width: 1;" text="Prescription">
+                        <TextField fx:id="nomMedocTextField" alignment="CENTER" layoutX="54.0" layoutY="91.0" prefHeight="20.0" prefWidth="150.0" promptText="Nom médicament" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #e5e7eb; -fx-border-width: 1; -fx-background-color: white; -fx-text-fill: #1f2937; -fx-prompt-text-fill: #9ca3af;" />
+
+                        <TextField fx:id="prixAchatMedocTextField" alignment="CENTER" layoutX="54.0" layoutY="136.0" prefHeight="20.0" prefWidth="150.0" promptText="Prix d'achat" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #e5e7eb; -fx-border-width: 1; -fx-background-color: white; -fx-text-fill: #1f2937; -fx-prompt-text-fill: #9ca3af;" />
+
+                        <TextField fx:id="prixVenteMedocTextField" alignment="CENTER" layoutX="54.0" layoutY="181.0" prefHeight="20.0" prefWidth="150.0" promptText="Prix de vente" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #e5e7eb; -fx-border-width: 1; -fx-background-color: white; -fx-text-fill: #1f2937; -fx-prompt-text-fill: #9ca3af;" />
+
+                        <TextField fx:id="stockMedocTextField" alignment="CENTER" layoutX="54.0" layoutY="226.0" prefHeight="20.0" prefWidth="150.0" promptText="Stock" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #e5e7eb; -fx-border-width: 1; -fx-background-color: white; -fx-text-fill: #1f2937; -fx-prompt-text-fill: #9ca3af;" />
+
+                        <TextField fx:id="seuilCommandeMedocTextField" alignment="CENTER" layoutX="54.0" layoutY="271.0" prefHeight="20.0" prefWidth="150.0" promptText="Seuil d'alerte" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #e5e7eb; -fx-border-width: 1; -fx-background-color: white; -fx-text-fill: #1f2937; -fx-prompt-text-fill: #9ca3af;" />
+
+                        <TextField fx:id="quantiteMaxTextField" alignment="CENTER" layoutX="54.0" layoutY="316.0" prefHeight="20.0" prefWidth="150.0" promptText="Quantité maximale" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #e5e7eb; -fx-border-width: 1; -fx-background-color: white; -fx-text-fill: #1f2937; -fx-prompt-text-fill: #9ca3af;" />
+
+                        <MenuButton fx:id="prescriptionMenuButton" alignment="CENTER" layoutX="218.0" layoutY="92.0" prefHeight="20.0" prefWidth="150.0" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #e5e7eb; -fx-border-width: 1; -fx-background-color: white; -fx-text-fill: #1f2937;" text="Prescription">
                             <items>
-                                <MenuItem text="oui" />
-                                <MenuItem text="non" />
+                                <MenuItem fx:id="prescriptionOuiMenuItem" text="oui" />
+                                <MenuItem fx:id="prescriptionNonMenuItem" text="non" />
                             </items>
                         </MenuButton>
-                        <MenuButton fx:id="fournisseurMenuButton" layoutX="264.0" layoutY="265.0" prefHeight="30.0" prefWidth="121.0" style="-fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #ecf0f1; -fx-border-width: 1;" text="Fournisseur" />
-                        <TextField fx:id="familleMedocTextField" layoutX="264.0" layoutY="305.0" prefHeight="30.0" prefWidth="123.0" promptText="Famille" style="-fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #ecf0f1; -fx-border-width: 1;" />
-                        <TextField fx:id="dosageMedocTextField" layoutX="264.0" layoutY="345.0" prefHeight="30.0" prefWidth="123.0" promptText="Dosage" style="-fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #ecf0f1; -fx-border-width: 1;" />
-                        <TextField fx:id="formeMedocTextField" layoutX="264.0" layoutY="385.0" prefHeight="30.0" prefWidth="126.0" promptText="Forme médicament" style="-fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #ecf0f1; -fx-border-width: 1;" />
 
-                        <Button fx:id="addbutton" layoutX="264.0" layoutY="423.0" mnemonicParsing="false" onAction="#addbuttonOnAction" prefHeight="35.0" prefWidth="119.0" style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-background-radius: 5; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 1);" text="Ajouter" />
+                        <MenuButton fx:id="fournisseurMenuButton" alignment="CENTER" layoutX="218.0" layoutY="137.0" prefHeight="20.0" prefWidth="150.0" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #e5e7eb; -fx-border-width: 1; -fx-background-color: white; -fx-text-fill: #1f2937;" text="Fournisseur" />
 
-                        <!-- Zone de mise à jour -->
-                        <Rectangle arcHeight="15.0" arcWidth="15.0" fill="#ffffff" height="150.0" layoutX="430.0" layoutY="120.0" opacity="0.95" stroke="TRANSPARENT" strokeType="INSIDE" style="-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 3);" width="918.0" />
-                        <Label layoutX="445.0" layoutY="140.0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #2C3E50;" text="Mettre à jour un médicament">
+                        <TextField fx:id="familleMedocTextField" alignment="CENTER" layoutX="218.0" layoutY="182.0" prefHeight="20.0" prefWidth="150.0" promptText="Famille" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #e5e7eb; -fx-border-width: 1; -fx-background-color: white; -fx-text-fill: #1f2937; -fx-prompt-text-fill: #9ca3af;" />
+
+                        <TextField fx:id="dosageMedocTextField" alignment="CENTER" layoutX="218.0" layoutY="227.0" prefHeight="20.0" prefWidth="150.0" promptText="Dosage" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #e5e7eb; -fx-border-width: 1; -fx-background-color: white; -fx-text-fill: #1f2937; -fx-prompt-text-fill: #9ca3af;" />
+
+                        <TextField fx:id="formeMedocTextField" alignment="CENTER" layoutX="218.0" layoutY="272.0" prefHeight="20.0" prefWidth="150.0" promptText="Forme" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #e5e7eb; -fx-border-width: 1; -fx-background-color: white; -fx-text-fill: #1f2937; -fx-prompt-text-fill: #9ca3af;" />
+
+                        <Button fx:id="addbutton" layoutX="220.0" layoutY="315.0" mnemonicParsing="false" onAction="#addbuttonOnAction" prefHeight="20.0" prefWidth="150.0" style="-fx-background-color: #059669; -fx-text-fill: white; -fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 1); -fx-cursor: hand;" text="Ajouter" />
+
+                        <!-- Zone de mise à jour avec effet glassmorphisme -->
+                        <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#e9eb7c8c" height="195.0" layoutX="41.0" layoutY="370.0" opacity="1.0" stroke="#d4d01105" strokeType="INSIDE" style="-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 15, 0, 0, 3);" width="342.0" />
+                        <Label layoutX="45.0" layoutY="382.0" style="-fx-font-size: 24; -fx-font-weight: bold; -fx-text-fill: #1f2937;" text="Mettre à jour un médicament">
                             <font>
-                                <Font name="Segoe UI Semibold" size="20.0" />
+                                <Font name="Berlin Sans FB" size="20.0" />
                             </font>
                         </Label>
-
-                        <MenuButton fx:id="medicamentMenuButton" layoutX="527.0" layoutY="193.0" prefHeight="30.0" prefWidth="200.0" style="-fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #ecf0f1; -fx-border-width: 1;" text="Choisir un médicament" />
-                        <MenuButton fx:id="choixMenuButton" layoutX="747.0" layoutY="193.0" prefHeight="30.0" prefWidth="200.0" style="-fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #ecf0f1; -fx-border-width: 1;" text="Champ à modifier">
+                        <MenuButton fx:id="medicamentMenuButton" layoutX="55.0" layoutY="433.0" prefHeight="26.0" prefWidth="150.0" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #e5e7eb; -fx-border-width: 1; -fx-background-color: white; -fx-text-fill: #1f2937;" text="Choisir médicament" />
+                        <MenuButton fx:id="choixMenuButton" layoutX="220.0" layoutY="433.0" prefHeight="27.0" prefWidth="150.0" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #e5e7eb; -fx-border-width: 1; -fx-background-color: white; -fx-text-fill: #1f2937;" text="Champ à modifier">
                             <items>
                                 <MenuItem text="Nom" />
                                 <MenuItem text="Stock" />
@@ -83,40 +117,37 @@
                                 <MenuItem text="Forme" />
                             </items>
                         </MenuButton>
-                        <TextField fx:id="newValueMedocTextField" layoutX="967.0" layoutY="193.0" prefHeight="30.0" prefWidth="150.0" promptText="Nouvelle valeur" style="-fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #ecf0f1; -fx-border-width: 1;" />
-                        <Button fx:id="updateButton" layoutX="1137.0" layoutY="193.0" mnemonicParsing="false" onAction="#updateButtonOnAction" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: #f39c12; -fx-text-fill: white; -fx-background-radius: 5; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 1);" text="Mettre à jour" />
+                        <TextField fx:id="newValueMedocTextField" alignment="CENTER" layoutX="137.0" layoutY="484.0" prefHeight="18.0" prefWidth="150.0" promptText="nouvelle valeur" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #e5e7eb; -fx-border-width: 1; -fx-background-color: white; -fx-text-fill: #1f2937; -fx-prompt-text-fill: #9ca3af;" />
+                        <Button fx:id="updateButton" layoutX="134.0" layoutY="529.0" mnemonicParsing="false" onAction="#updateButtonOnAction" prefHeight="20.0" prefWidth="150.0" style="-fx-background-color: #D97706; -fx-text-fill: white; -fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 1); -fx-cursor: hand;" text="Mettre à jour" />
 
-                        <!-- Zone de suppression -->
-                        <Rectangle arcHeight="15.0" arcWidth="15.0" fill="#ffffff" height="150.0" layoutX="35.0" layoutY="572.0" opacity="0.95" stroke="TRANSPARENT" strokeType="INSIDE" style="-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 3);" width="386.0" />
-                        <Label layoutX="103.0" layoutY="600.0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #2C3E50;" text="Supprimer un médicament">
+                        <!-- Zone de suppression avec effet glassmorphisme -->
+                        <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#db76767e" height="85.0" layoutX="38.0" layoutY="576.0" opacity="1.0" stroke="#ff2b0500" strokeType="INSIDE" style="-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 15, 0, 0, 3);" width="347.0" />
+                        <Label layoutX="59.0" layoutY="576.0" style="-fx-font-size: 24; -fx-font-weight: bold; -fx-text-fill: #1f2937;" text="Supprimer un médicament">
                             <font>
-                                <Font name="Segoe UI Semibold" size="20.0" />
+                                <Font name="Segoe UI Semibold" size="24.0" />
                             </font>
                         </Label>
-                        <TextField fx:id="idDeleteMedocTextField" layoutX="55.0" layoutY="570.0" prefHeight="30.0" prefWidth="235.0" promptText="ID du médicament" style="-fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #ecf0f1; -fx-border-width: 1;" visible="false" />
-                        <Button fx:id="deleteButton" disable="true" layoutX="101.0" layoutY="646.0" mnemonicParsing="false" onAction="#deleteButtonOnAction" prefHeight="30.0" prefWidth="254.0" style="-fx-background-color: #cccccc; -fx-text-fill: white; -fx-background-radius: 5;" text="Supprimer" />
+                        <TextField fx:id="idDeleteMedocTextField" layoutX="55.0" layoutY="570.0" prefHeight="30.0" prefWidth="235.0" promptText="ID du médicament" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #e5e7eb; -fx-border-width: 1; -fx-background-color: white; -fx-text-fill: #1f2937; -fx-prompt-text-fill: #9ca3af;" visible="false" />
+                        <Button fx:id="deleteButton" disable="true" layoutX="55.0" layoutY="611.0" mnemonicParsing="false" onAction="#deleteButtonOnAction" prefHeight="25.0" prefWidth="307.0" style="-fx-background-color: #DC2626; -fx-text-fill: white; -fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 1); -fx-cursor: hand;" text="Supprimer" />
 
-                        <!-- TableView -->
-                        <Rectangle arcHeight="15.0" arcWidth="15.0" fill="#ffffff" height="440.0" layoutX="432.0" layoutY="285.0" opacity="0.95" stroke="TRANSPARENT" strokeType="INSIDE" style="-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 3);" width="916.0" />
-                        <TableView fx:id="medicamentsTableView" layoutX="445.0" layoutY="305.0" prefHeight="403.0" prefWidth="896.0" style="-fx-background-color: transparent; -fx-border-color: transparent;">
+                        <!-- TableView avec effet glassmorphisme -->
+                        <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#ffffff9e" height="644.0" layoutX="393.0" layoutY="17.0" opacity="1.0" stroke="#e6e7eb00" strokeType="INSIDE" style="-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 15, 0, 0, 3);" width="959.0" />
+                        <TableView fx:id="medicamentsTableView" layoutX="426.0" layoutY="53.0" prefHeight="567.0" prefWidth="906.0" style="-fx-background-color: transparent; -fx-border-color: transparent;">
                             <columns>
-                                <TableColumn fx:id="colID" minWidth="0.0" prefWidth="0.0" style="-fx-alignment: CENTER;" text="ID" />
-                                <TableColumn fx:id="colNom" prefWidth="127.0" style="-fx-alignment: CENTER;" text="Nom" />
-                                <TableColumn fx:id="colPrixAchat" prefWidth="61.0" style="-fx-alignment: CENTER;" text="Prix achat" />
-                                <TableColumn fx:id="colPrixVente" prefWidth="74.0" style="-fx-alignment: CENTER;" text="Prix vente" />
-                                <TableColumn fx:id="colStock" minWidth="0.0" prefWidth="41.0" style="-fx-alignment: CENTER;" text="Stock" />
-                                <TableColumn fx:id="colSeuilAlerte" prefWidth="41.0" style="-fx-alignment: CENTER;" text="Seuil" />
-                                <TableColumn fx:id="colQuantiteMax" prefWidth="60.0" style="-fx-alignment: CENTER;" text="Qté Max" />
-                                <TableColumn fx:id="colPrescription" prefWidth="78.0" style="-fx-alignment: CENTER;" text="Prescription" />
-                                <TableColumn fx:id="colFournisseur" prefWidth="110.0" style="-fx-alignment: CENTER;" text="Fournisseur" />
-                                <TableColumn fx:id="colFamille" minWidth="0.0" prefWidth="123.0" style="-fx-alignment: CENTER;" text="Famille" />
-                                <TableColumn fx:id="colDosage" minWidth="0.0" prefWidth="60.0" style="-fx-alignment: CENTER;" text="Dosage" />
-                                <TableColumn fx:id="colFormeMedicament" prefWidth="119.0" style="-fx-alignment: CENTER;" text="Forme" />
+                                <TableColumn fx:id="colID" minWidth="0.0" prefWidth="0.0" style="-fx-alignment: CENTER; -fx-text-fill: #1f2937;" text="ID" />
+                                <TableColumn fx:id="colNom" prefWidth="116.0" style="-fx-alignment: CENTER; -fx-text-fill: #1f2937;" text="Nom" />
+                                <TableColumn fx:id="colPrixAchat" prefWidth="72.0" style="-fx-alignment: CENTER; -fx-text-fill: #1f2937;" text="Prix achat" />
+                                <TableColumn fx:id="colPrixVente" prefWidth="87.0" style="-fx-alignment: CENTER; -fx-text-fill: #1f2937;" text="Prix vente" />
+                                <TableColumn fx:id="colStock" minWidth="0.0" prefWidth="44.0" style="-fx-alignment: CENTER; -fx-text-fill: #1f2937;" text="Stock" />
+                                <TableColumn fx:id="colSeuilAlerte" prefWidth="40.0" style="-fx-alignment: CENTER; -fx-text-fill: #1f2937;" text="Seuil" />
+                                <TableColumn fx:id="colQuantiteMax" prefWidth="63.0" style="-fx-alignment: CENTER; -fx-text-fill: #1f2937;" text="Qté Max" />
+                                <TableColumn fx:id="colPrescription" prefWidth="84.0" style="-fx-alignment: CENTER; -fx-text-fill: #1f2937;" text="Prescription" />
+                                <TableColumn fx:id="colFournisseur" prefWidth="100.0" style="-fx-alignment: CENTER; -fx-text-fill: #1f2937;" text="Fournisseur" />
+                                <TableColumn fx:id="colFamille" minWidth="0.0" prefWidth="67.0" style="-fx-alignment: CENTER; -fx-text-fill: #1f2937;" text="Famille" />
+                                <TableColumn fx:id="colDosage" minWidth="0.0" prefWidth="89.0" style="-fx-alignment: CENTER; -fx-text-fill: #1f2937;" text="Dosage" />
+                                <TableColumn fx:id="colFormeMedicament" prefWidth="142.0" style="-fx-alignment: CENTER; -fx-text-fill: #1f2937;" text="Forme" />
                             </columns>
                         </TableView>
-
-                        <!-- Bouton Retour -->
-                        <Button fx:id="retourButton" layoutX="1286.0" layoutY="25.0" mnemonicParsing="false" onAction="#retourButtonOnClick" style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-background-radius: 5; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 1);" text="Retour" />
                     </children>
                 </AnchorPane>
             </right>

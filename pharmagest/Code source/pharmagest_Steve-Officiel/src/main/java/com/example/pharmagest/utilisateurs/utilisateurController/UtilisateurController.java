@@ -257,4 +257,56 @@ public class UtilisateurController {
         alert.setContentText(message);
         alert.showAndWait();
     }
+
+    @FXML
+    public void menuItemAdminOnAction() {
+        statutMenuButton.setText("Admin");
+    }
+
+    @FXML
+    public void menuItemVendeurOnAction() {
+        statutMenuButton.setText("Vendeur");
+    }
+
+    @FXML
+    public void menuItemNomOnAction() {
+        menuButton.setText("nom");
+    }
+
+    @FXML
+    public void menuItemPrenomOnAction() {
+        menuButton.setText("prenom");
+    }
+
+    @FXML
+    public void menuItemIdentifiantOnAction() {
+        menuButton.setText("identifiant");
+    }
+
+    @FXML
+    public void menuItemEmailOnAction() {
+        menuButton.setText("email");
+    }
+
+    @FXML
+    public void menuItemNumeroOnAction() {
+        menuButton.setText("numero");
+    }
+
+    @FXML
+    public void menuItemStatutOnAction() {
+        menuButton.setText("statut");
+        newValueTextField.setVisible(false);
+        newStatutMenuButton.setVisible(true);
+    }
+
+    @FXML
+    public void menuItemNewAdminOnAction() {
+        newStatutMenuButton.setText("Admin");
+    }
+
+    @FXML
+    public void menuItemNewVendeurOnAction() {
+        newStatutMenuButton.setText("Vendeur");
+    }
 }

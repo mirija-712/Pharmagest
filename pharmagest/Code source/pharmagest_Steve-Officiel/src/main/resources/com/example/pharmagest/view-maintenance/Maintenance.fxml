@@ -1,44 +1,164 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="756.0" prefWidth="1372.0" style="-fx-background-color: #AED6F1;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pharmagest.maintenance.maintenanceController.maintenanceController">
-   <top>
-        <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="756.0" prefWidth="1147.0" style="-fx-background-color: #8f9c91;" BorderPane.alignment="CENTER">
+<BorderPane prefHeight="764.0" prefWidth="1366.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pharmagest.maintenance.maintenanceController.maintenanceController">
+    <children>
+        <ImageView fitHeight="764.0" fitWidth="1372.0" layoutX="0.0" layoutY="0.0" pickOnBounds="true">
+            <image>
+                <Image url="@../image/fd.jpg" />
+            </image>
+        </ImageView>
+    </children>
+    <top>
+        <HBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="1372.0" style="-fx-background-color: white; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 2);">
             <children>
-                <Button fx:id="Fournisseur" layoutX="959.0" layoutY="510.0" mnemonicParsing="false" onAction="#FournisseurOnClick" prefHeight="29.0" prefWidth="380.0" style="-fx-background-color: #04620f;" text="Fournisseur" textFill="#f8f8f8" />
-                <Button fx:id="Utilisateur" layoutX="45.0" layoutY="508.0" mnemonicParsing="false" onAction="#UtilisateurOnClick" prefHeight="30.0" prefWidth="225.0" style="-fx-background-color: #04620f;" text="Utilisateur" textFill="#f8f8f8" />
-                <Button fx:id="maj" layoutX="584.0" layoutY="510.0" mnemonicParsing="false" onAction="#majOnClick" prefHeight="30.0" prefWidth="324.0" style="-fx-background-color: #04620f;" text="MAJ des prix" textFill="#f8f8f8" />
-                <ImageView fitHeight="228.0" fitWidth="383.0" layoutX="959.0" layoutY="283.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../image/fournisseur.jpg" />
-                    </image>
-                </ImageView>
-                <ImageView fitHeight="224.0" fitWidth="226.0" layoutX="45.0" layoutY="285.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../image/utilisateurs.jpg" />
-                    </image>
-                </ImageView>
-                <ImageView fitHeight="228.0" fitWidth="338.0" layoutX="584.0" layoutY="283.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../image/Billan.jpg" />
-               </image></ImageView>
-                <Button fx:id="RetourDashboard" layoutX="1265.0" layoutY="32.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#RetourDashboardOnClick" prefHeight="25.0" prefWidth="67.0" style="-fx-background-color: red;" text="Retour" textFill="WHITE" />
-            <Button fx:id="Medicaments" layoutX="309.0" layoutY="510.0" mnemonicParsing="false" onAction="#MedicamentsOnClick" prefHeight="30.0" prefWidth="229.0" style="-fx-background-color: #04620f;" text="Medicament" textFill="#f8f8f8" />
-            <ImageView fitHeight="228.0" fitWidth="240.0" layoutX="309.0" layoutY="283.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../image/Medoc.jpg" />
-               </image>
-            </ImageView>
-            <Label layoutX="523.0" layoutY="25.0" prefHeight="123.0" prefWidth="360.0" text="Maintenance" textFill="#04620f">
-               <font>
-                  <Font name="Bodoni MT" size="60.0" />
-               </font>
-            </Label>
+                <HBox alignment="CENTER_LEFT" spacing="20.0" style="-fx-padding: 0 0 0 20;">
+                    <children>
+                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../image/Maintenance.jpg" />
+                            </image>
+                        </ImageView>
+                        <Label style="-fx-text-fill: black; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 0, 2);" text="Maintenance">
+                            <font>
+                                <Font name="Berlin Sans FB Demi Bold" size="28.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </HBox>
+                <Region HBox.hgrow="ALWAYS" />
+                <HBox alignment="CENTER_RIGHT" spacing="20.0" style="-fx-padding: 0 20 0 0;">
+                    <children>
+                        <Button fx:id="RetourDashboard" mnemonicParsing="false" onAction="#RetourDashboardOnClick" style="-fx-background-color: #DC2626; -fx-text-fill: white; -fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 1); -fx-cursor: hand;" text="Retour">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </Button>
+                    </children>
+                </HBox>
             </children>
-        </AnchorPane>
-   </top>
+        </HBox>
+    </top>
+    <center>
+        <GridPane alignment="CENTER" hgap="50.0" style="-fx-padding: 30;" vgap="50.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <!-- Utilisateur -->
+                <VBox alignment="CENTER" spacing="15.0" style="-fx-background-color: rgba(255, 255, 255, 0.9); -fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 2); -fx-border-color: #e5e7eb; -fx-border-radius: 20; -fx-border-width: 1;" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                    <padding>
+                        <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+                    </padding>
+                    <children>
+                        <ImageView fitHeight="250.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../image/utilisateurs.jpg" />
+                            </image>
+                        </ImageView>
+                        <Label style="-fx-text-fill: #1f2937; -fx-font-weight: bold;" text="Utilisateur">
+                            <font>
+                                <Font name="System Bold" size="18.0" />
+                            </font>
+                        </Label>
+                        <Button fx:id="Utilisateur" mnemonicParsing="false" onAction="#UtilisateurOnClick" prefHeight="30.0" prefWidth="300.0" style="-fx-background-color: #059669; -fx-text-fill: white; -fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 1); -fx-cursor: hand;" text="Accéder">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </Button>
+                    </children>
+                </VBox>
+
+                <!-- Médicament -->
+                <VBox alignment="CENTER" spacing="15.0" style="-fx-background-color: rgba(255, 255, 255, 0.9); -fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 2); -fx-border-color: #e5e7eb; -fx-border-radius: 20; -fx-border-width: 1;" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                    <padding>
+                        <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+                    </padding>
+                    <children>
+                        <ImageView fitHeight="250.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../image/medicaments.jpg" />
+                            </image>
+                        </ImageView>
+                        <Label style="-fx-text-fill: #1f2937; -fx-font-weight: bold;" text="Médicament">
+                            <font>
+                                <Font name="System Bold" size="18.0" />
+                            </font>
+                        </Label>
+                        <Button fx:id="Medicaments" mnemonicParsing="false" onAction="#MedicamentsOnClick" prefWidth="300.0" style="-fx-background-color: #059669; -fx-text-fill: white; -fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 1); -fx-cursor: hand;" text="Accéder">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </Button>
+                    </children>
+                </VBox>
+
+                <!-- Fournisseur -->
+                <VBox alignment="CENTER" spacing="15.0" style="-fx-background-color: rgba(255, 255, 255, 0.9); -fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 2); -fx-border-color: #e5e7eb; -fx-border-radius: 20; -fx-border-width: 1;" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                    <padding>
+                        <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+                    </padding>
+                    <children>
+                        <ImageView fitHeight="250.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../image/fournisseur.jpg" />
+                            </image>
+                        </ImageView>
+                        <Label style="-fx-text-fill: #1f2937; -fx-font-weight: bold;" text="Fournisseur">
+                            <font>
+                                <Font name="System Bold" size="18.0" />
+                            </font>
+                        </Label>
+                        <Button fx:id="Fournisseur" mnemonicParsing="false" onAction="#FournisseurOnClick" prefWidth="300.0" style="-fx-background-color: #059669; -fx-text-fill: white; -fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 1); -fx-cursor: hand;" text="Accéder">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </Button>
+                    </children>
+                </VBox>
+
+                <!-- MAJ des prix -->
+                <VBox alignment="CENTER" spacing="15.0" style="-fx-background-color: rgba(255, 255, 255, 0.9); -fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 2); -fx-border-color: #e5e7eb; -fx-border-radius: 20; -fx-border-width: 1;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <padding>
+                        <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+                    </padding>
+                    <children>
+                        <ImageView fitHeight="250.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../image/gestion%20prix.jpg" />
+                            </image>
+                        </ImageView>
+                        <Label style="-fx-text-fill: #1f2937; -fx-font-weight: bold;" text="MAJ des prix">
+                            <font>
+                                <Font name="System Bold" size="18.0" />
+                            </font>
+                        </Label>
+                        <Button fx:id="maj" mnemonicParsing="false" onAction="#majOnClick" prefWidth="300.0" style="-fx-background-color: #059669; -fx-text-fill: white; -fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 1); -fx-cursor: hand;" text="Accéder">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </Button>
+                    </children>
+                </VBox>
+            </children>
+        </GridPane>
+    </center>
 </BorderPane>

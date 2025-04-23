@@ -1,5 +1,6 @@
 package com.example.pharmagest.dashboard.dashboardController;
 
+import com.example.pharmagest.DatabaseConnexion.DatabaseConnection;
 import com.example.pharmagest.login.UserSession;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -8,10 +9,15 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
@@ -28,6 +34,10 @@ public class dashboardController implements Initializable {
     private Button VenteButton;
     @FXML
     private Button CaisseButton;
+    
+    // Label pour afficher le nom de l'utilisateur
+    @FXML
+    private Label userNameLabel;
 
     private String userStatus;
 
@@ -35,6 +45,27 @@ public class dashboardController implements Initializable {
     public void setUserStatus(String status) {
         this.userStatus = status;
         updateButtonAccess();
+        updateUserName();
+    }
+    
+    // Met à jour le nom de l'utilisateur affiché
+    private void updateUserName() {
+        // Récupérer l'ID de l'utilisateur depuis la session
+        int userId = UserSession.getUserId();
+        
+        // Récupérer le nom de l'utilisateur depuis la base de données
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(
+                     "SELECT nom FROM utilisateur WHERE id = ?")) {
+            pstmt.setInt(1, userId);
+            ResultSet rs = pstmt.executeQuery();
+            if (rs.next()) {
+                String nom = rs.getString("nom");
+                userNameLabel.setText(nom);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     // Configure l'accès aux boutons selon le statut de l'utilisateur

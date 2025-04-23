@@ -12,77 +12,83 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="754.0" prefWidth="1147.0" style="-fx-background-color: linear-gradient(to bottom right, #2C3E50, #34495E);" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pharmagest.utilisateurs.utilisateurController.UtilisateurController">
+<AnchorPane prefHeight="764.0" prefWidth="1366.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pharmagest.utilisateurs.utilisateurController.UtilisateurController">
     <children>
+        <!-- Fond d'écran -->
+        <ImageView fitHeight="764.0" fitWidth="1372.0" layoutX="0.0" layoutY="0.0" pickOnBounds="true">
+            <image>
+                <Image url="@../image/utilisateurs.jpg" />
+            </image>
+        </ImageView>
         <BorderPane prefHeight="759.0" prefWidth="1152.0">
+            <top>
+                <HBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="1372.0" style="-fx-background-color: white; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 2);">
+                    <children>
+                        <HBox alignment="CENTER_LEFT" spacing="20.0" style="-fx-padding: 0 0 0 20;">
+                            <children>
+                                <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../image/icons8-utilisateur-7.png" />
+                                    </image>
+                                </ImageView>
+                                <Label prefHeight="40.0" prefWidth="270.0" style="-fx-text-fill: black; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 0, 2);" text="Gestion Utilisateur" textAlignment="CENTER">
+                                    <font>
+                                        <Font name="Berlin Sans FB Demi Bold" size="28.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </HBox>
+                        <Region HBox.hgrow="ALWAYS" />
+                        <HBox alignment="CENTER_RIGHT" spacing="20.0" style="-fx-padding: 0 20 0 0;">
+                            <children>
+                                <Button fx:id="retourButton" mnemonicParsing="false" onAction="#retourButtonOnClick" style="-fx-background-color: #DC2626; -fx-text-fill: white; -fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 1); -fx-cursor: hand;" text="Retour">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Button>
+                            </children>
+                        </HBox>
+                    </children>
+                </HBox>
+            </top>
             <right>
                 <AnchorPane prefHeight="759.0" prefWidth="1371.0" BorderPane.alignment="CENTER">
                     <children>
-                        <!-- En-tête -->
-                        <Label layoutX="500.0" layoutY="25.0" style="-fx-text-fill: white; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 0, 2);" text="Gestion Utilisateur">
+                        <!-- Zone d'ajout d'utilisateur avec effet glassmorphisme -->
+                        <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#98f598a1" height="322.0" layoutX="40.0" layoutY="34.0" opacity="1.0" stroke="#1ac40000" strokeType="INSIDE" width="350.0" />
+                        <Label layoutX="94.0" layoutY="50.0" style="-fx-font-size: 24; -fx-font-weight: bold; -fx-text-fill: #1f2937;" text="Ajouter un utilisateur">
                             <font>
-                                <Font name="Segoe UI Light" size="49.0" />
+                                <Font name="Segoe UI Semibold" size="24.0" />
                             </font>
                         </Label>
-                        <Button fx:id="retourButton" layoutX="1286.0" layoutY="25.0" mnemonicParsing="false" onAction="#retourButtonOnClick" style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-background-radius: 5; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 1);" text="Retour" />
-
-                        <!-- Zone d'ajout d'utilisateur -->
-                        <Rectangle arcHeight="15.0" arcWidth="15.0" fill="#ffffff" height="375.0" layoutX="35.0" layoutY="120.0" opacity="0.95" stroke="TRANSPARENT" strokeType="INSIDE" style="-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 3);" width="526.0" />
-                        <Label layoutX="55.0" layoutY="140.0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #2C3E50;" text="Ajouter un utilisateur">
-                            <font>
-                                <Font name="Segoe UI Semibold" size="20.0" />
-                            </font>
-                        </Label>
-                        <ImageView fx:id="userImageView" fitHeight="80.0" fitWidth="80.0" layoutX="448.0" layoutY="140.0" preserveRatio="true">
-                            <image>
-                                <Image url="@../image/icons8-utilisateur-7.png" />
-                            </image>
-                        </ImageView>
-                        
-                        <!-- Champs de saisie avec style modernisé -->
-                        <Label layoutX="55.0" layoutY="212.0" style="-fx-text-fill: #2C3E50;" text="Nom :" />
-                        <TextField fx:id="nomTextField" layoutX="165.0" layoutY="207.0" prefHeight="30.0" prefWidth="235.0" style="-fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #ecf0f1; -fx-border-width: 1;" />
-                        
-                        <Label layoutX="55.0" layoutY="252.0" style="-fx-text-fill: #2C3E50;" text="Prénom :" />
-                        <TextField fx:id="prenomTextField" layoutX="165.0" layoutY="247.0" prefHeight="30.0" prefWidth="235.0" style="-fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #ecf0f1; -fx-border-width: 1;" />
-                        
-                        <Label layoutX="55.0" layoutY="292.0" style="-fx-text-fill: #2C3E50;" text="E-mail :" />
-                        <TextField fx:id="emailTextField" layoutX="165.0" layoutY="287.0" prefHeight="30.0" prefWidth="235.0" style="-fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #ecf0f1; -fx-border-width: 1;" />
-                        
-                        <Label layoutX="55.0" layoutY="332.0" style="-fx-text-fill: #2C3E50;" text="Numéro :" />
-                        <TextField fx:id="numeroTextField" layoutX="165.0" layoutY="327.0" prefHeight="30.0" prefWidth="235.0" style="-fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #ecf0f1; -fx-border-width: 1;" />
-                        
-                        <Label layoutX="55.0" layoutY="372.0" style="-fx-text-fill: #2C3E50;" text="Identifiant :" />
-                        <TextField fx:id="identifiantTextField" layoutX="165.0" layoutY="367.0" prefHeight="30.0" prefWidth="235.0" style="-fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #ecf0f1; -fx-border-width: 1;" />
-                        
-                        <Label layoutX="55.0" layoutY="412.0" style="-fx-text-fill: #2C3E50;" text="Mot de passe :" />
-                        <PasswordField fx:id="passwordTextField" layoutX="165.0" layoutY="407.0" prefHeight="30.0" prefWidth="235.0" style="-fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #ecf0f1; -fx-border-width: 1;" />
-                        
-                        <Label layoutX="55.0" layoutY="452.0" style="-fx-text-fill: #2C3E50;" text="Statut :" />
-                        <MenuButton fx:id="statutMenuButton" layoutX="165.0" layoutY="447.0" prefHeight="30.0" prefWidth="235.0" style="-fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #ecf0f1; -fx-border-width: 1;" text="Choisir le statut">
+                        <TextField fx:id="nomTextField" alignment="CENTER" layoutX="146.0" layoutY="91.0" prefHeight="20.0" prefWidth="150.0" promptText="Nom..." style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #e5e7eb; -fx-border-width: 1; -fx-background-color: white; -fx-text-fill: #1f2937; -fx-prompt-text-fill: #9ca3af;" />
+                        <TextField fx:id="prenomTextField" alignment="CENTER" layoutX="146.0" layoutY="122.0" prefHeight="20.0" prefWidth="150.0" promptText="Prénom..." style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #e5e7eb; -fx-border-width: 1; -fx-background-color: white; -fx-text-fill: #1f2937; -fx-prompt-text-fill: #9ca3af;" />
+                        <TextField fx:id="emailTextField" alignment="CENTER" layoutX="146.0" layoutY="154.0" prefHeight="20.0" prefWidth="150.0" promptText="E-mail..." style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #e5e7eb; -fx-border-width: 1; -fx-background-color: white; -fx-text-fill: #1f2937; -fx-prompt-text-fill: #9ca3af;" />
+                        <TextField fx:id="numeroTextField" alignment="CENTER" layoutX="146.0" layoutY="185.0" prefHeight="20.0" prefWidth="150.0" promptText="Numéro..." style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #e5e7eb; -fx-border-width: 1; -fx-background-color: white; -fx-text-fill: #1f2937; -fx-prompt-text-fill: #9ca3af;" />
+                        <TextField fx:id="identifiantTextField" alignment="CENTER" layoutX="146.0" layoutY="216.0" prefHeight="20.0" prefWidth="150.0" promptText="Identifiant..." style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #e5e7eb; -fx-border-width: 1; -fx-background-color: white; -fx-text-fill: #1f2937; -fx-prompt-text-fill: #9ca3af;" />
+                        <PasswordField fx:id="passwordTextField" alignment="CENTER" layoutX="146.0" layoutY="247.0" prefHeight="20.0" prefWidth="150.0" promptText="mots de passe..." style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #e5e7eb; -fx-border-width: 1; -fx-background-color: white; -fx-text-fill: #1f2937; -fx-prompt-text-fill: #9ca3af;" />
+                        <MenuButton fx:id="statutMenuButton" alignment="CENTER" layoutX="146.0" layoutY="279.0" prefHeight="20.0" prefWidth="150.0" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #e5e7eb; -fx-border-width: 1; -fx-background-color: white; -fx-text-fill: #1f2937;" text="Choisir le statut">
                             <items>
                                 <MenuItem fx:id="menuItemAdmin" text="Admin" />
                                 <MenuItem fx:id="menuItemVendeur" text="Vendeur" />
                             </items>
                         </MenuButton>
-                        <Button fx:id="addButton" layoutX="461.0" layoutY="218.0" mnemonicParsing="false" onAction="#addButtonOnAction" style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-background-radius: 5; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 1);" text="Ajouter" />
+                        <Button fx:id="addButton" layoutX="145.0" layoutY="318.0" mnemonicParsing="false" onAction="#addButtonOnAction" prefHeight="20.0" prefWidth="150.0" style="-fx-background-color: #059669; -fx-text-fill: white; -fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 1); -fx-cursor: hand;" text="Ajouter" />
 
-                        <!-- Zone de mise à jour -->
-                        <Rectangle arcHeight="15.0" arcWidth="15.0" fill="#ffffff" height="150.0" layoutX="580.0" layoutY="120.0" opacity="0.95" stroke="TRANSPARENT" strokeType="INSIDE" style="-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 3);" width="768.0" />
-                        <Label layoutX="600.0" layoutY="140.0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #2C3E50;" text="Mettre à jour un utilisateur">
+                        <!-- Zone de mise à jour avec effet glassmorphisme -->
+                        <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#e9eb7c8c" height="150.0" layoutX="40.0" layoutY="364.0" opacity="1.0" stroke="#d4d01100" strokeType="INSIDE" style="-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 15, 0, 0, 3);" width="350.0" />
+                        <Label layoutX="43.0" layoutY="366.0" style="-fx-font-size: 24; -fx-font-weight: bold; -fx-text-fill: #1f2937;" text="Mettre à jour un utilisateur">
                             <font>
-                                <Font name="Segoe UI Semibold" size="20.0" />
+                                <Font name="Berlin Sans FB" size="20.0" />
                             </font>
                         </Label>
-                        
-                        <Label layoutX="740.0" layoutY="180.0" style="-fx-text-fill: #2C3E50;" text="Utilisateur :" />
-                        <MenuButton fx:id="userMenuButton" layoutX="820.0" layoutY="175.0" prefHeight="30.0" prefWidth="150.0" style="-fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #ecf0f1; -fx-border-width: 1;" text="Choisir utilisateur" />
-                        
-                        <Label layoutX="990.0" layoutY="180.0" style="-fx-text-fill: #2C3E50;" text="Champ à modifier :" />
-                        <MenuButton fx:id="menuButton" layoutX="1100.0" layoutY="175.0" style="-fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #ecf0f1; -fx-border-width: 1;" text="choix menu">
+                        <MenuButton fx:id="userMenuButton" layoutX="76.0" layoutY="407.0" prefHeight="26.0" prefWidth="135.0" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #e5e7eb; -fx-border-width: 1; -fx-background-color: white; -fx-text-fill: #1f2937;" text="Choisir utilisateur" />
+                        <MenuButton fx:id="menuButton" layoutX="76.0" layoutY="441.0" prefHeight="27.0" prefWidth="137.0" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #e5e7eb; -fx-border-width: 1; -fx-background-color: white; -fx-text-fill: #1f2937;" text="choix menu">
                             <items>
                                 <MenuItem fx:id="menuItemNom" text="nom" />
                                 <MenuItem fx:id="menuItemPrenom" text="prenom" />
@@ -92,54 +98,46 @@
                                 <MenuItem fx:id="menuItemStatut" text="statut" />
                             </items>
                         </MenuButton>
-                        
-                        <Label layoutX="740.0" layoutY="220.0" style="-fx-text-fill: #2C3E50;" text="Nouvelle valeur :" />
-                        <TextField fx:id="newValueTextField" layoutX="840.0" layoutY="215.0" prefHeight="30.0" prefWidth="200.0" style="-fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #ecf0f1; -fx-border-width: 1;" />
-                        <MenuButton fx:id="newStatutMenuButton" layoutX="700.0" layoutY="215.0" prefHeight="30.0" prefWidth="200.0" style="-fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #ecf0f1; -fx-border-width: 1;" text="Choisir le statut" visible="false">
+                        <TextField fx:id="newValueTextField" layoutX="76.0" layoutY="475.0" prefHeight="18.0" prefWidth="136.0" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #e5e7eb; -fx-border-width: 1; -fx-background-color: white; -fx-text-fill: #1f2937; -fx-prompt-text-fill: #9ca3af;" />
+                        <MenuButton fx:id="newStatutMenuButton" layoutX="700.0" layoutY="215.0" prefHeight="35.0" prefWidth="200.0" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #e5e7eb; -fx-border-width: 1; -fx-background-color: white; -fx-text-fill: #1f2937;" text="Choisir le statut" visible="false">
                             <items>
                                 <MenuItem fx:id="menuItemNewAdmin" text="Admin" />
                                 <MenuItem fx:id="menuItemNewVendeur" text="Vendeur" />
                             </items>
                         </MenuButton>
-                        <Button fx:id="updateButton" layoutX="1104.0" layoutY="215.0" mnemonicParsing="false" onAction="#updateButtonOnAction" style="-fx-background-color: #f39c12; -fx-text-fill: white; -fx-background-radius: 5; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 1);" text="Mettre à jour" />
+                        <Button fx:id="updateButton" layoutX="257.0" layoutY="478.0" mnemonicParsing="false" onAction="#updateButtonOnAction" style="-fx-background-color: #D97706; -fx-text-fill: white; -fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 1); -fx-cursor: hand;" text="Mettre à jour" />
 
-                        <!-- Zone de suppression -->
-                        <Rectangle arcHeight="15.0" arcWidth="15.0" fill="#ffffff" height="200.0" layoutX="35.0" layoutY="510.0" opacity="0.95" stroke="TRANSPARENT" strokeType="INSIDE" style="-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 3);" width="526.0" />
-                        <Label layoutX="50.0" layoutY="520.0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #2C3E50;" text="Supprimer un utilisateur">
+                        <!-- Zone de suppression avec effet glassmorphisme -->
+                        <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#db76767e" height="119.0" layoutX="39.0" layoutY="523.0" opacity="1.0" stroke="#ff2b0500" strokeType="INSIDE" style="-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 15, 0, 0, 3);" width="350.0" />
+                        <Label layoutX="58.0" layoutY="527.0" style="-fx-font-size: 24; -fx-font-weight: bold; -fx-text-fill: #1f2937;" text="Supprimer ">
                             <font>
-                                <Font name="Segoe UI Semibold" size="20.0" />
+                                <Font name="Segoe UI Semibold" size="24.0" />
                             </font>
                         </Label>
-                        <ImageView fx:id="userDeleteImageView" fitHeight="80.0" fitWidth="80.0" layoutX="448.0" layoutY="520.0" preserveRatio="true">
+                        <ImageView fx:id="userDeleteImageView" fitHeight="80.0" fitWidth="80.0" layoutX="267.0" layoutY="526.0" preserveRatio="true">
                             <image>
                                 <Image url="@../image/icons8-utilisateur-8.png" />
                             </image>
                         </ImageView>
-                        <Label layoutX="55.0" layoutY="570.0" style="-fx-text-fill: #2C3E50;" text="Mot de passe :" />
-                        <PasswordField fx:id="passwordDeleteField" layoutX="165.0" layoutY="565.0" prefHeight="30.0" prefWidth="235.0" style="-fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #ecf0f1; -fx-border-width: 1;" />
-                        <Button fx:id="deleteButton" disable="true" layoutX="452.0" layoutY="607.0" mnemonicParsing="false" onAction="#deleteButtonOnAction" style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-background-radius: 5; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 1);" text="Supprimer" />
-
-                        <!-- TableView -->
-                        <Rectangle arcHeight="15.0" arcWidth="15.0" fill="#ffffff" height="427.0" layoutX="580.0" layoutY="285.0" opacity="0.95" stroke="TRANSPARENT" strokeType="INSIDE" style="-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 3);" width="768.0" />
-                        <Label layoutX="600.0" layoutY="301.0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #2C3E50;" text="Liste des utilisateurs">
-                            <font>
-                                <Font name="Segoe UI Semibold" size="20.0" />
-                            </font>
-                        </Label>
-                        <TableView fx:id="tableView" layoutX="606.0" layoutY="334.0" prefHeight="355.0" prefWidth="728.0" style="-fx-background-color: transparent; -fx-border-color: transparent;">
+                        <PasswordField fx:id="passwordDeleteField" alignment="CENTER" layoutX="62.0" layoutY="580.0" prefHeight="28.0" prefWidth="162.0" promptText="Mots de passe..." style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #e5e7eb; -fx-border-width: 1; -fx-background-color: white; -fx-text-fill: #1f2937; -fx-prompt-text-fill: #9ca3af;" />
+                        <Button fx:id="deleteButton" disable="true" layoutX="270.0" layoutY="603.0" mnemonicParsing="false" onAction="#deleteButtonOnAction" style="-fx-background-color: #DC2626; -fx-text-fill: white; -fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 1); -fx-cursor: hand;" text="Supprimer" />
+                        <ImageView fx:id="userDeleteImageView1" fitHeight="80.0" fitWidth="80.0" layoutX="261.0" layoutY="394.0" preserveRatio="true">
+                            <image>
+                                <Image url="@../image/icons8-male-user-100.png" />
+                            </image>
+                        </ImageView>
+                        <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#ffffffd9" height="614.0" layoutX="426.0" layoutY="33.0" opacity="1.0" stroke="#e6e7eb00" strokeType="INSIDE" style="-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 15, 0, 0, 3);" width="911.0" />
+                        <TableView fx:id="tableView" layoutX="531.0" layoutY="53.0" prefHeight="567.0" prefWidth="728.0" style="-fx-background-color: transparent; -fx-border-color: transparent;">
                             <columns>
-                                <TableColumn fx:id="colID" minWidth="0.0" prefWidth="0.0" style="-fx-alignment: CENTER;" text="ID" />
-                                <TableColumn fx:id="colNom" prefWidth="142.0" style="-fx-alignment: CENTER;" text="Nom" />
-                                <TableColumn fx:id="colPrenom" prefWidth="129.0" style="-fx-alignment: CENTER;" text="Prénom" />
-                                <TableColumn fx:id="colIdentifiant" prefWidth="105.0" style="-fx-alignment: CENTER;" text="Identifiant" />
-                                <TableColumn fx:id="colEmail" minWidth="0.0" prefWidth="100.0" style="-fx-alignment: CENTER;" text="E-mail" />
-                                <TableColumn fx:id="colNumero" minWidth="0.0" prefWidth="119.0" style="-fx-alignment: CENTER;" text="Numéro" />
-                                <TableColumn fx:id="colStatut" minWidth="0.0" prefWidth="131.0" style="-fx-alignment: CENTER;" text="Statut" />
+                                <TableColumn fx:id="colID" minWidth="0.0" prefWidth="0.0" style="-fx-alignment: CENTER; -fx-text-fill: #1f2937;" text="ID" />
+                                <TableColumn fx:id="colNom" prefWidth="142.0" style="-fx-alignment: CENTER; -fx-text-fill: #1f2937;" text="Nom" />
+                                <TableColumn fx:id="colPrenom" prefWidth="129.0" style="-fx-alignment: CENTER; -fx-text-fill: #1f2937;" text="Prénom" />
+                                <TableColumn fx:id="colIdentifiant" prefWidth="105.0" style="-fx-alignment: CENTER; -fx-text-fill: #1f2937;" text="Identifiant" />
+                                <TableColumn fx:id="colEmail" minWidth="0.0" prefWidth="100.0" style="-fx-alignment: CENTER; -fx-text-fill: #1f2937;" text="E-mail" />
+                                <TableColumn fx:id="colNumero" minWidth="0.0" prefWidth="119.0" style="-fx-alignment: CENTER; -fx-text-fill: #1f2937;" text="Numéro" />
+                                <TableColumn fx:id="colStatut" minWidth="0.0" prefWidth="131.0" style="-fx-alignment: CENTER; -fx-text-fill: #1f2937;" text="Statut" />
                             </columns>
                         </TableView>
-
-                        <!-- Label d'erreur / confirmation -->
-                        <Label fx:id="errorLabel" layoutX="501.0" layoutY="110.0" prefHeight="47.0" prefWidth="457.0" style="-fx-text-fill: #e74c3c; -fx-font-size: 16;" />
                     </children>
                 </AnchorPane>
             </right>

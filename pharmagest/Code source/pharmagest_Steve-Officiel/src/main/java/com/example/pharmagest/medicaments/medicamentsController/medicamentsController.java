@@ -159,46 +159,87 @@ public class medicamentsController implements Initializable {
     @FXML
     private void addbuttonOnAction(ActionEvent event) throws SQLException {
         String nom = nomMedocTextField.getText().trim();
-        double prixAchat, prixVente;
-        int stock, seuilAlerte;
-        int quantiteMax = Integer.parseInt(quantiteMaxTextField.getText().trim());
-
+        
+        // Validation des champs numériques
         try {
-            prixAchat = Double.parseDouble(prixAchatMedocTextField.getText().trim());
-            prixVente = Double.parseDouble(prixVenteMedocTextField.getText().trim());
-            stock = Integer.parseInt(stockMedocTextField.getText().trim());
-            seuilAlerte = Integer.parseInt(seuilCommandeMedocTextField.getText().trim());
+            // Vérification du prix d'achat
+            if (!prixAchatMedocTextField.getText().trim().matches("\\d*\\.?\\d+")) {
+                showAlert("Le prix d'achat doit être un nombre valide.", AlertType.ERROR);
+                prixAchatMedocTextField.clear();
+                return;
+            }
+            double prixAchat = Double.parseDouble(prixAchatMedocTextField.getText().trim());
+
+            // Vérification du prix de vente
+            if (!prixVenteMedocTextField.getText().trim().matches("\\d*\\.?\\d+")) {
+                showAlert("Le prix de vente doit être un nombre valide.", AlertType.ERROR);
+                prixVenteMedocTextField.clear();
+                return;
+            }
+            double prixVente = Double.parseDouble(prixVenteMedocTextField.getText().trim());
+
+            // Vérification du stock
+            if (!stockMedocTextField.getText().trim().matches("\\d+")) {
+                showAlert("Le stock doit être un nombre entier.", AlertType.ERROR);
+                stockMedocTextField.clear();
+                return;
+            }
+            int stock = Integer.parseInt(stockMedocTextField.getText().trim());
+
+            // Vérification du seuil d'alerte
+            if (!seuilCommandeMedocTextField.getText().trim().matches("\\d+")) {
+                showAlert("Le seuil d'alerte doit être un nombre entier.", AlertType.ERROR);
+                seuilCommandeMedocTextField.clear();
+                return;
+            }
+            int seuilAlerte = Integer.parseInt(seuilCommandeMedocTextField.getText().trim());
+
+            // Vérification de la quantité maximale
+            if (!quantiteMaxTextField.getText().trim().matches("\\d+")) {
+                showAlert("La quantité maximale doit être un nombre entier.", AlertType.ERROR);
+                quantiteMaxTextField.clear();
+                return;
+            }
+            int quantiteMax = Integer.parseInt(quantiteMaxTextField.getText().trim());
+
+            // Conversion de la valeur de prescription en booléen : "oui" => true, sinon false
+            boolean prescriptionValue = prescriptionMenuButton.getText().equalsIgnoreCase("oui");
+
+            // Récupérer le nom du fournisseur depuis le MenuButton
+            String fournisseurName = fournisseurMenuButton.getText().trim();
+            if (fournisseurName.equals("Fournisseur")) {
+                showAlert("Veuillez sélectionner un fournisseur.", AlertType.ERROR);
+                fournisseurMenuButton.setText("Fournisseur");
+                return;
+            }
+
+            String famille = familleMedocTextField.getText().trim();
+            String dosage = dosageMedocTextField.getText().trim();
+            String forme = formeMedocTextField.getText().trim();
+
+            if (nom.isEmpty()) {
+                showAlert("Veuillez remplir le champ Nom.", AlertType.WARNING);
+                nomMedocTextField.clear();
+                return;
+            }
+
+            if (medicamentsModele.ajouterMedicament(nom, prixAchat, prixVente, stock, seuilAlerte, quantiteMax,
+                    prescriptionValue, fournisseurName, famille, dosage, forme)) {
+                showAlert("Médicament ajouté avec succès !", AlertType.INFORMATION);
+                clearAddFields();
+                loadMedicaments();
+                updateMedicamentMenuButton();
+            } else {
+                showAlert("Erreur lors de l'ajout du médicament.", AlertType.ERROR);
+            }
         } catch (NumberFormatException e) {
-            showAlert("Veuillez vérifier les valeurs numériques.", AlertType.WARNING);
-            return;
-        }
-
-        // Conversion de la valeur de prescription en booléen : "oui" => true, sinon false
-        boolean prescriptionValue = prescriptionMenuButton.getText().equalsIgnoreCase("oui");
-
-        // Récupérer le nom du fournisseur depuis le MenuButton (sans conversion en int)
-        String fournisseurName = fournisseurMenuButton.getText().trim();
-        if (fournisseurName.equals("Fournisseur")) {
-            showAlert("Fournisseur invalide !", AlertType.ERROR);
-            return;
-        }
-
-        String famille = familleMedocTextField.getText().trim();
-        String dosage = dosageMedocTextField.getText().trim();
-        String forme = formeMedocTextField.getText().trim();
-
-        if (nom.isEmpty()) {
-            showAlert("Veuillez remplir le champ Nom.", AlertType.WARNING);
-            return;
-        }
-
-        if (medicamentsModele.ajouterMedicament(nom, prixAchat, prixVente, stock, seuilAlerte, quantiteMax,
-                prescriptionValue, fournisseurName, famille, dosage, forme)) {
-            showAlert("Médicament ajouté !", AlertType.INFORMATION);
-            clearAddFields();
-            loadMedicaments();
-        } else {
-            showAlert("Erreur d'ajout !", AlertType.ERROR);
+            showAlert("Veuillez vérifier que tous les champs numériques sont correctement remplis.", AlertType.ERROR);
+            // Réinitialiser tous les champs numériques en cas d'erreur
+            prixAchatMedocTextField.clear();
+            prixVenteMedocTextField.clear();
+            stockMedocTextField.clear();
+            seuilCommandeMedocTextField.clear();
+            quantiteMaxTextField.clear();
         }
     }
 

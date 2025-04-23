@@ -9,38 +9,66 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="756.0" prefWidth="1372.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pharmagest.commande.commandeController.commandeController">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="764.0" prefWidth="1366.0" style="-fx-background-color: transparent;" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pharmagest.commande.commandeController.commandeController">
     <tabs>
         <Tab style="-fx-background-color: transparent;" text="Commande">
             <content>
-                <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="727.0" prefWidth="1406.0" style="-fx-background-color: linear-gradient(to bottom right, #2C3E50, #34495E);">
+                <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="764.0" prefWidth="1366.0" style="-fx-background-color: white;">
                     <children>
-                        <!-- Titre -->
-                        <Text fill="WHITE" layoutX="490.0" layoutY="63.0" text="Gestion des Commandes" wrappingWidth="490.13671875">
-                            <font>
-                                <Font name="Segoe UI Light" size="45.0" />
-                            </font>
-                        </Text>
+                        <ImageView fitHeight="764.0" fitWidth="1366.0" layoutX="0.0" layoutY="0.0" pickOnBounds="true">
+                            <image>
+                                <Image url="@../image/commande.jpg" />
+                            </image>
+                        </ImageView>
 
-                        <!-- Bouton retour -->
-                        <Button fx:id="retourButton" layoutX="1302.0" layoutY="13.0" onAction="#retourButtonOnclick" style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-background-radius: 5; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 1);" text="Retour" />
+                        <!-- En-tête -->
+                        <HBox alignment="CENTER_LEFT" layoutX="0.0" layoutY="0.0" prefHeight="80.0" prefWidth="1366.0" style="-fx-background-color: white; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 2);">
+                            <children>
+                                <HBox alignment="CENTER_LEFT" spacing="20.0" style="-fx-padding: 0 0 0 20;">
+                                    <children>
+                                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../image/commande.jpg" />
+                                            </image>
+                                        </ImageView>
+                                        <Text style="-fx-fill: #1f2937; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 0, 2);" text="Gestion des Commandes">
+                                            <font>
+                                                <Font name="Berlin Sans FB Demi Bold" size="28.0" />
+                                            </font>
+                                        </Text>
+                                    </children>
+                                </HBox>
+                                <Region HBox.hgrow="ALWAYS" />
+                                <HBox alignment="CENTER_RIGHT" spacing="20.0" style="-fx-padding: 0 20 0 0;">
+                                    <children>
+                                        <Button fx:id="retourButton" onAction="#retourButtonOnclick" style="-fx-background-color: #DC2626; -fx-text-fill: white; -fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 1); -fx-cursor: hand;" text="Retour">
+                                            <font>
+                                                <Font name="System Bold" size="14.0" />
+                                            </font>
+                                        </Button>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </HBox>
 
-                        <!-- Zone supérieure -->
-                        <Rectangle arcHeight="15.0" arcWidth="15.0" fill="#ffffff" height="300.0" layoutX="63.0" layoutY="86.0" opacity="0.95" stroke="TRANSPARENT" strokeType="INSIDE" style="-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 3);" width="1239.0" />
+                        <!-- Zone des médicaments -->
+                        <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#ffffffa1" height="296.0" layoutX="20.0" layoutY="85.0" opacity="1.0" stroke="#08080800" strokeType="INSIDE" width="1326.0" />
                         
                         <!-- Menu des fournisseurs -->
-                        <MenuButton fx:id="fournisseurMenu" layoutX="82.0" layoutY="100.0" style="-fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #ecf0f1; -fx-border-width: 1;" text="Sélectionner un Fournisseur">
+                        <MenuButton fx:id="fournisseurMenu" layoutX="40.0" layoutY="96.0" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #e5e7eb; -fx-border-width: 1; -fx-background-color: white; -fx-text-fill: #1f2937;" text="Sélectionner un Fournisseur">
                             <font>
-                                <Font size="14.0" />
+                                <Font name="System Bold" size="14.0" />
                             </font>
                         </MenuButton>
 
                         <!-- Tableau des médicaments -->
-                        <TableView fx:id="medicamentsTableView" layoutX="82.0" layoutY="140.0" prefHeight="200.0" prefWidth="1200.0" style="-fx-background-color: transparent; -fx-border-color: transparent;">
+                        <TableView fx:id="medicamentsTableView" layoutX="40.0" layoutY="132.0" prefHeight="200.0" prefWidth="1286.0" style="-fx-background-color: transparent; -fx-border-color: transparent;">
                             <columns>
                                 <TableColumn fx:id="colID" minWidth="0.0" prefWidth="0.0" style="-fx-alignment: CENTER;" text="ID" />
                                 <TableColumn fx:id="colNom" prefWidth="176.0" style="-fx-alignment: CENTER;" text="Nom" />
@@ -53,36 +81,41 @@
                                 <TableColumn fx:id="colFournisseur" prefWidth="127.0" style="-fx-alignment: CENTER;" text="Fournisseur" />
                                 <TableColumn fx:id="colFamille" minWidth="0.0" prefWidth="206.0" style="-fx-alignment: CENTER;" text="Famille" />
                                 <TableColumn fx:id="colDosage" minWidth="0.0" prefWidth="63.0" style="-fx-alignment: CENTER;" text="Dosage" />
-                                <TableColumn fx:id="colFormeMedicament" prefWidth="123.0" style="-fx-alignment: CENTER;" text="Forme" />
+                                <TableColumn fx:id="colFormeMedicament" prefWidth="209.0" style="-fx-alignment: CENTER;" text="Forme" />
                             </columns>
                         </TableView>
 
-                        <Button fx:id="ajouterLigneCommandeButton" layoutX="1082.0" layoutY="350.0" mnemonicParsing="false" onAction="#ajouterLigneCommandeButtonOnClick" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-background-radius: 5; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 1);" text="Ajouter à la commande" />
+                        <Button fx:id="ajouterLigneCommandeButton" layoutX="1126.0" layoutY="337.0" mnemonicParsing="false" onAction="#ajouterLigneCommandeButtonOnClick" style="-fx-background-color: #059669; -fx-text-fill: white; -fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 1); -fx-cursor: hand;" text="Ajouter à la commande">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </Button>
 
-                        <!-- Zone inférieure -->
-                        <Rectangle arcHeight="15.0" arcWidth="15.0" fill="#ffffff" height="300.0" layoutX="238.0" layoutY="410.0" opacity="0.95" stroke="TRANSPARENT" strokeType="INSIDE" style="-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 3);" width="938.0" />
-
-                        <!-- Image -->
-                        <ImageView fitHeight="223.0" fitWidth="314.0" layoutX="268.0" layoutY="437.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../image/Approvisionnement.jpg" />
-                            </image>
-                        </ImageView>
+                        <!-- Zone du panier -->
+                        <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#ffffff8c" height="320.0" layoutX="20.0" layoutY="387.0" opacity="1.0" stroke="#d4d01100" strokeType="INSIDE" width="1326.0" />
 
                         <!-- Tableau ligne commande -->
-                        <TableView fx:id="ligneCommandeTableView" layoutX="633.0" layoutY="435.0" prefHeight="179.0" prefWidth="526.0" style="-fx-background-color: transparent; -fx-border-color: transparent;">
+                        <TableView fx:id="ligneCommandeTableView" layoutX="230.0" layoutY="403.0" prefHeight="236.0" prefWidth="866.0" style="-fx-background-color: transparent; -fx-border-color: transparent;">
                             <columns>
                                 <TableColumn fx:id="colIDCommande" minWidth="0.0" prefWidth="0.0" style="-fx-alignment: CENTER;" text="ID" />
                                 <TableColumn fx:id="colCommande_id" minWidth="0.0" prefWidth="0.0" style="-fx-alignment: CENTER;" text="Commande_id" />
-                                <TableColumn fx:id="colmedicament_id" prefWidth="251.0" style="-fx-alignment: CENTER;" text="Medicament" />
-                                <TableColumn fx:id="colquantites" prefWidth="97.0" style="-fx-alignment: CENTER;" text="Quantites" />
-                                <TableColumn fx:id="colPrixUnitaire" minWidth="0.0" prefWidth="179.0" style="-fx-alignment: CENTER;" text="PrixUnitaire" />
+                                <TableColumn fx:id="colmedicament_id" prefWidth="400.0" style="-fx-alignment: CENTER;" text="Médicament" />
+                                <TableColumn fx:id="colquantites" prefWidth="200.0" style="-fx-alignment: CENTER;" text="Quantités" />
+                                <TableColumn fx:id="colPrixUnitaire" minWidth="0.0" prefWidth="266.0" style="-fx-alignment: CENTER;" text="Prix Unitaire" />
                             </columns>
                         </TableView>
 
                         <!-- Boutons de contrôle -->
-                        <Button fx:id="resetCommandeButton" layoutX="633.0" layoutY="629.0" mnemonicParsing="false" onAction="#resetCommandeButtonOnClick" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-background-radius: 5; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 1);" text="Réinitialiser la commande" />
-                        <Button fx:id="ajouterCommandeButton" layoutX="959.0" layoutY="629.0" onAction="#ajouterCommandeButtonOnClick" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-background-radius: 5; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 1);" text="Confirmer la commande" />
+                        <Button fx:id="resetCommandeButton" layoutX="230.0" layoutY="650.0" mnemonicParsing="false" onAction="#resetCommandeButtonOnClick" style="-fx-background-color: #DC2626; -fx-text-fill: white; -fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 1); -fx-cursor: hand;" text="Réinitialiser la commande">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </Button>
+                        <Button fx:id="ajouterCommandeButton" layoutX="896.0" layoutY="649.0" onAction="#ajouterCommandeButtonOnClick" style="-fx-background-color: #059669; -fx-text-fill: white; -fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 1); -fx-cursor: hand;" text="Confirmer la commande">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </Button>
                     </children>
                 </AnchorPane>
             </content>
